@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tulasi Pravallika Katikireddy · AWS Cloud & DevOps Engineer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AWS Cloud & DevOps Engineer with hands-on experience in infrastructure automation, CI/CD pipelines, and observability.">
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-slate-100">
+  <div class="min-h-screen flex flex-col">
+    <!-- Soft gradient background -->
+    <div class="pointer-events-none fixed inset-0 -z-10 bg-gradient-to-b from-cyan-500/20 via-slate-950 to-slate-950 blur-3xl"></div>
+
+    <!-- NAVBAR -->
+    <header class="sticky top-0 z-20 border-b border-slate-800/70 bg-slate-950/80 backdrop-blur">
+      <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+        <!-- Left: logo/name -->
+        <div class="flex items-center gap-2">
+          <div class="h-8 w-8 rounded-xl bg-gradient-to-tr from-cyan-400 to-emerald-400 flex items-center justify-center text-slate-950 font-bold text-sm">
+            TK
+          </div>
+          <div class="flex flex-col leading-tight">
+            <span class="text-sm sm:text-base font-semibold text-slate-100">
+              Tulasi Pravallika Katikireddy
+            </span>
+            <span class="text-[0.7rem] text-slate-400">
+              AWS Cloud & DevOps Engineer · Fremont, CA
+            </span>
+          </div>
+        </div>
+    
+        <!-- Center: desktop links -->
+        <div
+          id="nav-links-desktop"
+          class="hidden gap-6 text-xs sm:text-sm text-slate-300 sm:flex"
+        >
+          <a href="#about" class="hover:text-cyan-300 transition-colors">About</a>
+          <a href="#skills" class="hover:text-cyan-300 transition-colors">Skills</a>
+          <a href="#experience" class="hover:text-cyan-300 transition-colors">Experience</a>
+          <a href="#education" class="hover:text-cyan-300 transition-colors">Education</a>
+          <a href="#contact" class="hover:text-cyan-300 transition-colors">Contact</a>
+        </div>
+    
+        <!-- Right: badge + hamburger -->
+        <div class="flex items-center gap-2">
+          <!-- badge, always visible -->
+          <span class="hidden sm:inline rounded-full border border-emerald-500/40 bg-emerald-500/10 px-3 py-1 text-xs sm:text-sm text-emerald-300">
+            Open to AWS Cloud · DevOps · SRE roles
+          </span>
+    
+          <!-- mobile badge (shorter text) -->
+          <span class="sm:hidden rounded-full border border-emerald-500/40 bg-emerald-500/10 px-2 py-1 text-[0.7rem] text-emerald-300">
+            Open to Cloud roles
+          </span>
+    
+          <!-- HAMBURGER BUTTON: visible only on small screens -->
+          <button
+            id="nav-toggle"
+            class="sm:hidden inline-flex items-center justify-center rounded-lg border border-slate-700 p-1.5 text-slate-200 hover:border-cyan-400 hover:text-cyan-300 transition-colors"
+            aria-label="Toggle navigation menu"
+          >
+            <!-- Icon: 3 bars -->
+            <svg id="nav-toggle-icon-open" class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+            <!-- Icon: X (hidden by default) -->
+            <svg id="nav-toggle-icon-close" class="hidden h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    
+      <!-- MOBILE DROPDOWN MENU -->
+      <div
+        id="nav-menu-mobile"
+        class="sm:hidden hidden border-t border-slate-800 bg-slate-950/95"
+      >
+        <div class="mx-auto max-w-6xl px-4 py-3 flex flex-col gap-2 text-sm text-slate-200">
+          <a href="#about" class="py-1 hover:text-cyan-300 transition-colors">About</a>
+          <a href="#skills" class="py-1 hover:text-cyan-300 transition-colors">Skills</a>
+          <a href="#experience" class="py-1 hover:text-cyan-300 transition-colors">Experience</a>
+          <a href="#education" class="py-1 hover:text-cyan-300 transition-colors">Education</a>
+          <a href="#contact" class="py-1 hover:text-cyan-300 transition-colors">Contact</a>
+        </div>
+      </div>
+    </header>
+    
+
+    <!-- MAIN -->
+    <main class="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-16 px-4 py-10 sm:py-14">
+      <!-- HERO -->
+      <section class="grid gap-8 md:grid-cols-[minmax(0,2fr)_minmax(0,1.2fr)] items-start">
+        <div>
+          <p class="text-xs font-mono uppercase tracking-[0.3em] text-cyan-300/90">
+            AWS · DevOps · CI/CD · Containers
+          </p>
+          <h1 class="mt-3 text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold leading-tight bg-gradient-to-r from-cyan-400 via-sky-400 to-emerald-400 bg-clip-text text-transparent">
+            I automate cloud infrastructure and pipelines to make deployments faster, safer, and observable.
+          </h1>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a
+              href="#devops"
+              class="rounded-xl bg-cyan-500 px-4 py-2 text-sm font-medium text-slate-950 shadow-lg shadow-cyan-500/30 hover:bg-cyan-400 transition-colors"
+            >
+              View my DevOps story
+            </a>
+            <a
+    href="Tulasi_Katikireddy_Resume.pdf"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="rounded-xl border border-slate-700 px-4 py-2 text-sm font-medium text-slate-100 hover:border-cyan-400 hover:text-cyan-300 transition-colors"
+  >
+    Download resume (PDF)
+  </a>
+          </div>
+        </div>
+        
+        <!-- Quick profile -->
+        <div class="rounded-3xl border border-slate-800 bg-slate-900/80 p-4 text-xs text-slate-300">
+          <div class="text-[0.7rem] font-mono uppercase tracking-[0.18em] text-slate-400">
+            Quick profile
+          </div>
+          <dl class="mt-3 space-y-2">
+            <div class="flex justify-between gap-4">
+              <dt class="text-slate-400">Role</dt>
+              <dd class="font-semibold text-slate-100 text-right">
+                AWS Cloud & DevOps Engineer
+              </dd>
+            </div>
+            <div class="flex justify-between gap-4">
+              <dt class="text-slate-400">Current employer</dt>
+              <dd class="font-semibold text-slate-100 text-right">
+                Amazon — System Development Engineer
+              </dd>
+            </div>
+            <div class="flex justify-between gap-4">
+              <dt class="text-slate-400">Strengths</dt>
+              <dd class="font-semibold text-slate-100 text-right">
+                IaC · CI/CD · Observability
+              </dd>
+            </div>
+            <div class="flex justify-between gap-4">
+              <dt class="text-slate-400">Target roles</dt>
+              <dd class="font-semibold text-emerald-300 text-right">
+                DevOps · Cloud Engineer · SRE
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="space-y-4 -mt-4 md:-mt-6">
+        <h2 class="text-xl font-semibold text-slate-50">About me</h2>
+        <p class="text-sm text-slate-300 leading-relaxed">
+          I'm an AWS Cloud & DevOps Engineer who enjoys turning manual, fragile operations into reliable,
+          automated systems. My experience spans infrastructure automation, CI/CD pipelines, and production
+          support in large-scale environments.
+        </p>
+        <p class="text-sm text-slate-300 leading-relaxed">
+          At Amazon, I automate CloudWatch alarms, IAM operations, and data pipelines using Python/Boto3,
+          Terraform, and CloudFormation. I work daily with EC2, VPC, ALB/NLB, Lambda, S3, DynamoDB, and
+          Route53—always with a focus on reducing operational toil and configuration drift.
+        </p>
+        <p class="text-sm text-slate-300 leading-relaxed">
+          Earlier roles at Deloitte and Capgemini gave me strong foundations in CI/CD, build & release
+          workflows, and automation with Jenkins and scripting. I'm most happy when deployments are boring,
+          rollbacks are easy, and observability answers questions before incidents become outages.
+        </p>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills" class="space-y-5">
+        <h2 class="text-xl font-semibold text-slate-50">Technical skills</h2>
+        <div class="grid gap-4 md:grid-cols-2 text-sm">
+          <div class="rounded-3xl border border-slate-800 bg-slate-900/70 p-4">
+            <h3 class="text-sm font-semibold text-cyan-300">Cloud & Networking</h3>
+            <ul class="mt-2 space-y-1 text-slate-300">
+              <li>AWS: EC2, VPC, IAM, Lambda, S3, DynamoDB, ALB/NLB, CloudFormation, Route53</li>
+              <li>VPC design, subnets, routing, security groups, load balancing, DNS, SSL/TLS</li>
+            </ul>
+          </div>
+          <div class="rounded-3xl border border-slate-800 bg-slate-900/70 p-4">
+            <h3 class="text-sm font-semibold text-cyan-300">Infrastructure-as-Code</h3>
+            <ul class="mt-2 space-y-1 text-slate-300">
+              <li>Terraform modules for multi-region AWS environments</li>
+              <li>CloudFormation stacks for standardized infrastructure and IAM patterns</li>
+            </ul>
+          </div>
+          <div class="rounded-3xl border border-slate-800 bg-slate-900/70 p-4">
+            <h3 class="text-sm font-semibold text-cyan-300">CI/CD & Containers</h3>
+            <ul class="mt-2 space-y-1 text-slate-300">
+              <li>Jenkins, GitHub Actions, AWS CodePipeline</li>
+              <li>Docker image builds, ECS deployments, automated promotions between environments</li>
+            </ul>
+          </div>
+          <div class="rounded-3xl border border-slate-800 bg-slate-900/70 p-4">
+            <h3 class="text-sm font-semibold text-cyan-300">Programming & Monitoring</h3>
+            <ul class="mt-2 space-y-1 text-slate-300">
+              <li>Python (Boto3), Bash scripting</li>
+              <li>CloudWatch metrics/logs, Grafana, Prometheus; logging and alerting best practices</li>
+              <li>Linux, Git, GitHub</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- DEVOPS STORY -->
+      <section id="devops" class="space-y-5">
+        <h2 class="text-xl font-semibold text-slate-50">DevOps & Cloud story</h2>
+
+        <div class="rounded-3xl border border-slate-800 bg-slate-900/70 p-5">
+          <div class="grid gap-4 md:grid-cols-4 text-xs text-slate-200">
+            <div class="flex flex-col gap-2">
+              <div class="text-[0.7rem] font-mono uppercase tracking-[0.18em] text-slate-400">Plan</div>
+              <div class="rounded-2xl border border-slate-700 bg-slate-950/60 p-3">
+                <div class="font-semibold text-cyan-300">Design environments</div>
+                <p class="mt-1 text-slate-300">
+                  Understand business and reliability goals, then design AWS networking, IAM, and environments
+                  (dev/stage/prod) that support safe changes.
+                </p>
+              </div>
+            </div>
+            <div class="flex flex-col gap-2">
+              <div class="text-[0.7rem] font-mono uppercase tracking-[0.18em] text-slate-400">Build</div>
+              <div class="rounded-2xl border border-slate-700 bg-slate-950/60 p-3">
+                <div class="font-semibold text-cyan-300">Automate with IaC</div>
+                <p class="mt-1 text-slate-300">
+                  Express infrastructure in Terraform/CloudFormation so every environment is reproducible,
+                  versioned, and peer-reviewed.
+                </p>
+              </div>
+            </div>
+            <div class="flex flex-col gap-2">
+              <div class="text-[0.7rem] font-mono uppercase tracking-[0.18em] text-slate-400">Ship</div>
+              <div class="rounded-2xl border border-slate-700 bg-slate-950/60 p-3">
+                <div class="font-semibold text-cyan-300">CI/CD pipelines</div>
+                <p class="mt-1 text-slate-300">
+                  Jenkins, GitHub Actions, or CodePipeline build, test, and deploy Docker-based workloads with
+                  minimal manual steps and clear promotion rules.
+                </p>
+              </div>
+            </div>
+            <div class="flex flex-col gap-2">
+              <div class="text-[0.7rem] font-mono uppercase tracking-[0.18em] text-slate-400">Operate</div>
+              <div class="rounded-2xl border border-slate-700 bg-slate-950/60 p-3">
+                <div class="font-semibold text-cyan-300">Observe & improve</div>
+                <p class="mt-1 text-slate-300">
+                  Use CloudWatch, logs, dashboards, and alarms to detect issues early, reduce MTTR, and feed
+                  learnings back into better automation.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section id="experience" class="space-y-6">
+        <h2 class="text-xl font-semibold text-slate-50">Professional experience</h2>
+        <div class="grid gap-4 md:grid-cols-2">
+          <!-- Amazon -->
+          <button
+            onclick="openModal('modal-amazon')"
+            class="rounded-3xl border border-slate-800 bg-slate-900/70 p-5 text-left hover:border-cyan-500/50 hover:bg-slate-900/90 transition-all cursor-pointer group"
+          >
+            <h3 class="text-sm font-semibold text-slate-100 group-hover:text-cyan-300 transition-colors">
+              System Development Engineer · Amazon
+            </h3>
+            <p class="mt-1 text-xs text-slate-400">Sunnyvale, CA · Aug 2024 – Present</p>
+            <p class="mt-2 text-xs text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity">Click to view details →</p>
+          </button>
+
+          <!-- Internship -->
+          <button
+            onclick="openModal('modal-intern')"
+            class="rounded-3xl border border-slate-800 bg-slate-900/70 p-5 text-left hover:border-cyan-500/50 hover:bg-slate-900/90 transition-all cursor-pointer group"
+          >
+            <h3 class="text-sm font-semibold text-slate-100 group-hover:text-cyan-300 transition-colors">
+              Software Developer Intern · Advanced Interconnect Technologies
+            </h3>
+            <p class="mt-1 text-xs text-slate-400">St. Cloud, MN · Jan 2023 – Apr 2023</p>
+            <p class="mt-2 text-xs text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity">Click to view details →</p>
+          </button>
+
+          <!-- Deloitte -->
+          <button
+            onclick="openModal('modal-deloitte')"
+            class="rounded-3xl border border-slate-800 bg-slate-900/70 p-5 text-left hover:border-cyan-500/50 hover:bg-slate-900/90 transition-all cursor-pointer group"
+          >
+            <h3 class="text-sm font-semibold text-slate-100 group-hover:text-cyan-300 transition-colors">
+              Consultant · Deloitte
+            </h3>
+            <p class="mt-1 text-xs text-slate-400">Hyderabad, India · Oct 2019 – May 2022</p>
+            <p class="mt-2 text-xs text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity">Click to view details →</p>
+          </button>
+
+          <!-- Capgemini -->
+          <button
+            onclick="openModal('modal-capgemini')"
+            class="rounded-3xl border border-slate-800 bg-slate-900/70 p-5 text-left hover:border-cyan-500/50 hover:bg-slate-900/90 transition-all cursor-pointer group"
+          >
+            <h3 class="text-sm font-semibold text-slate-100 group-hover:text-cyan-300 transition-colors">
+              Senior Software Engineer · Capgemini
+            </h3>
+            <p class="mt-1 text-xs text-slate-400">Chennai, India · May 2017 – Sept 2019</p>
+            <p class="mt-2 text-xs text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity">Click to view details →</p>
+          </button>
+        </div>
+      </section>
+
+      <!-- EDUCATION & CERTIFICATIONS -->
+      <section id="education" class="space-y-6">
+        <h2 class="text-xl font-semibold text-slate-50">Education & certifications</h2>
+        <div class="grid gap-5 md:grid-cols-2 text-sm">
+          <div class="rounded-3xl border border-slate-800 bg-slate-900/70 p-4">
+            <h3 class="text-sm font-semibold text-slate-100">
+              M.S. in Computer Science
+            </h3>
+            <p class="mt-1 text-xs text-slate-400">
+              Saint Cloud State University · Saint Cloud, MN · Aug 2022 – May 2024
+            </p>
+            <p class="mt-2 text-slate-300">
+              GPA: 3.79 / 4.00
+            </p>
+          </div>
+          <div class="rounded-3xl border border-slate-800 bg-slate-900/70 p-4">
+            <h3 class="text-sm font-semibold text-slate-100">
+              B.Tech in Information Technology
+            </h3>
+            <p class="mt-1 text-xs text-slate-400">
+              Prasad V Potluri Siddhartha Institute of Technology · India · Sept 2013 – Apr 2017
+            </p>
+            <p class="mt-2 text-slate-300">
+              CGPA: 8.9 / 10
+            </p>
+          </div>
+        </div>
+
+        <div class="rounded-3xl border border-slate-800 bg-slate-900/70 p-4 text-sm">
+          <h3 class="text-sm font-semibold text-slate-100">Certifications</h3>
+          <ul class="mt-2 space-y-1 text-slate-300">
+            <li>AWS Certified Cloud Practitioner (CLF-C02)</li>
+            <li>Oracle Certified Associate, Java SE 7 Programmer</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- WHAT I'M LOOKING FOR -->
+      <section class="space-y-4">
+        <h2 class="text-xl font-semibold text-slate-50">What I'm looking for</h2>
+        <p class="text-sm text-slate-300 leading-relaxed">
+          I'm looking for DevOps, Cloud Engineer, or SRE roles where I can own the lifecycle of cloud
+          infrastructure: designing AWS architectures, automating them with Terraform/CloudFormation,
+          building CI/CD pipelines, and improving observability and incident response.
+        </p>
+        <p class="text-sm text-slate-300 leading-relaxed">
+          I especially enjoy reducing operational toil, eliminating manual deployment steps, and creating
+          reusable patterns for IAM, networking, and monitoring that help entire teams move faster with
+          confidence.
+        </p>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="border-t border-slate-800 pt-6">
+        <h2 class="text-xl font-semibold text-slate-50">Contact & links</h2>
+        <div class="mt-3 grid gap-3 text-sm text-slate-300 md:grid-cols-3">
+          <div>
+            <div class="text-xs font-mono uppercase tracking-[0.18em] text-slate-400">Email</div>
+            <a href="mailto:ktulasipravallika@gmail.com" class="mt-1 block text-cyan-300 hover:text-cyan-200">
+              ktulasipravallika@gmail.com
+            </a>
+          </div>
+          <div>
+            <div class="text-xs font-mono uppercase tracking-[0.18em] text-slate-400">LinkedIn</div>
+            <a
+              href="https://www.linkedin.com/in/tulasi-pravallika-katikireddy/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-1 block text-cyan-300 hover:text-cyan-200"
+            >
+              linkedin.com/in/tulasi-pravallika-katikireddy
+            </a>
+          </div>
+          <div>
+            <div class="text-xs font-mono uppercase tracking-[0.18em] text-slate-400">GitHub</div>
+            <a
+              href="https://github.com/ktulasipravallika"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-1 block text-cyan-300 hover:text-cyan-200"
+            >
+              github.com/ktulasipravallika
+            </a>
+          </div>
+        </div>
+        <p class="mt-4 text-xs text-slate-500">
+          This site serves as my portfolio, resume, and evergreen cover letter for AWS Cloud & DevOps roles.
+          For a traditional PDF resume, please contact me or visit my LinkedIn profile.
+        </p>
+      </section>
+    </main>
+
+    <!-- MODALS -->
+    <!-- Amazon Modal -->
+    <div id="modal-amazon" class="fixed inset-0 z-50 hidden items-center justify-center">
+      <div onclick="closeModal('modal-amazon')" class="fixed inset-0 bg-black/60 backdrop-blur-sm"></div>
+      <div class="relative mx-4 w-full max-w-2xl rounded-3xl border border-slate-800 bg-slate-950 p-6 shadow-2xl max-h-[90vh] overflow-y-auto z-10">
+        <button
+          onclick="closeModal('modal-amazon')"
+          class="absolute right-4 top-4 text-slate-400 hover:text-slate-200 transition-colors"
+        >
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+        <h3 class="text-lg font-semibold text-slate-100 pr-8">
+          System Development Engineer · Amazon
+        </h3>
+        <p class="mt-1 text-sm text-slate-400">Sunnyvale, CA · Aug 2024 – Present</p>
+        <ul class="mt-4 space-y-2 text-sm text-slate-300">
+          <li class="flex items-start gap-2">
+            <span class="text-cyan-400 mt-1">•</span>
+            <span>Automated CloudWatch alarms, IAM operations, and DynamoDB → S3 pipelines using Python/Boto3, reducing manual operational tasks by 60% and increasing monitoring accuracy by 80%.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-cyan-400 mt-1">•</span>
+            <span>Built Infrastructure-as-Code using Terraform and CloudFormation, standardizing multi-region provisioning and reducing environment setup time by 90%.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-cyan-400 mt-1">•</span>
+            <span>Designed and maintained AWS services (EC2, VPC, ALB/NLB, Lambda, S3, Route53), improving application reliability by 35% and cutting configuration drift by 70%.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-cyan-400 mt-1">•</span>
+            <span>Improved CI/CD workflows using Jenkins and GitHub Actions, reducing deployment time by 40% and eliminating 95% of manual promotion steps.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-cyan-400 mt-1">•</span>
+            <span>Developed reusable IAM permission automation templates for multi-tenant AWS accounts, reducing onboarding time by 70% and lowering access-related tickets by 50%.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-cyan-400 mt-1">•</span>
+            <span>Troubleshot provisioning issues (IAM, subnet routing, tagging gaps), reducing environment inconsistencies by 55% and improving deployment success rates by 30%.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-cyan-400 mt-1">•</span>
+            <span>Implemented automated DynamoDB → S3 ETL processes via EventBridge and Lambda, improving reporting freshness by 3×.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-cyan-400 mt-1">•</span>
+            <span>Supported production incidents by analyzing CloudWatch metrics and logs, improving MTTR by 45% and meeting strict SLAs.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Deloitte Modal -->
+    <div id="modal-deloitte" class="fixed inset-0 z-50 hidden items-center justify-center">
+      <div onclick="closeModal('modal-deloitte')" class="fixed inset-0 bg-black/60 backdrop-blur-sm"></div>
+      <div class="relative mx-4 w-full max-w-2xl rounded-3xl border border-slate-800 bg-slate-950 p-6 shadow-2xl max-h-[90vh] overflow-y-auto z-10">
+        <button
+          onclick="closeModal('modal-deloitte')"
+          class="absolute right-4 top-4 text-slate-400 hover:text-slate-200 transition-colors"
+        >
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+        <h3 class="text-lg font-semibold text-slate-100 pr-8">
+          Consultant · Deloitte
+        </h3>
+        <p class="mt-1 text-sm text-slate-400">Hyderabad, India · Oct 2019 – May 2022</p>
+        <ul class="mt-4 space-y-2 text-sm text-slate-300">
+          <li class="flex items-start gap-2">
+            <span class="text-cyan-400 mt-1">•</span>
+            <span>Managed Jenkins CI/CD pipelines for multiple applications, improving build reliability and deployment speed.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-cyan-400 mt-1">•</span>
+            <span>Automated backend tasks using SQL and scripting, reducing manual operations and support overhead.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-cyan-400 mt-1">•</span>
+            <span>Collaborated with DevOps teams to enhance build and release workflows and enforce best practices.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-cyan-400 mt-1">•</span>
+            <span>Improved release quality through automated testing and deployment validation.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Capgemini Modal -->
+    <div id="modal-capgemini" class="fixed inset-0 z-50 hidden items-center justify-center">
+      <div onclick="closeModal('modal-capgemini')" class="fixed inset-0 bg-black/60 backdrop-blur-sm"></div>
+      <div class="relative mx-4 w-full max-w-2xl rounded-3xl border border-slate-800 bg-slate-950 p-6 shadow-2xl max-h-[90vh] overflow-y-auto z-10">
+        <button
+          onclick="closeModal('modal-capgemini')"
+          class="absolute right-4 top-4 text-slate-400 hover:text-slate-200 transition-colors"
+        >
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+        <h3 class="text-lg font-semibold text-slate-100 pr-8">
+          Senior Software Engineer · Capgemini
+        </h3>
+        <p class="mt-1 text-sm text-slate-400">Chennai, India · May 2017 – Sept 2019</p>
+        <ul class="mt-4 space-y-2 text-sm text-slate-300">
+          <li class="flex items-start gap-2">
+            <span class="text-cyan-400 mt-1">•</span>
+            <span>Automated testing workflows using Jenkins and Selenium, reducing manual QA effort.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-cyan-400 mt-1">•</span>
+            <span>Built scripts for backend automation, improving data validation and system reliability.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-cyan-400 mt-1">•</span>
+            <span>Supported build and release processes by integrating CI/CD best practices.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Intern Modal -->
+    <div id="modal-intern" class="fixed inset-0 z-50 hidden items-center justify-center">
+      <div onclick="closeModal('modal-intern')" class="fixed inset-0 bg-black/60 backdrop-blur-sm"></div>
+      <div class="relative mx-4 w-full max-w-2xl rounded-3xl border border-slate-800 bg-slate-950 p-6 shadow-2xl max-h-[90vh] overflow-y-auto z-10">
+        <button
+          onclick="closeModal('modal-intern')"
+          class="absolute right-4 top-4 text-slate-400 hover:text-slate-200 transition-colors"
+        >
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+        <h3 class="text-lg font-semibold text-slate-100 pr-8">
+          Software Developer Intern · Advanced Interconnect Technologies
+        </h3>
+        <p class="mt-1 text-sm text-slate-400">St. Cloud, MN · Jan 2023 – Apr 2023</p>
+        <ul class="mt-4 space-y-2 text-sm text-slate-300">
+          <li class="flex items-start gap-2">
+            <span class="text-cyan-400 mt-1">•</span>
+            <span>Built a Node.js + React.js interface for multi-department order tracking, optimizing workflows.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-cyan-400 mt-1">•</span>
+            <span>Enhanced system responsiveness through dynamic data retrieval and frontend optimizations.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-900/70 bg-slate-950/90">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 text-[0.7rem] text-slate-500">
+        <span>&copy; <span id="year"></span> Tulasi Pravallika Katikireddy</span>
+        <span>Hosted on GitHub Pages · Built with HTML & Tailwind</span>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = 'auto';
+      }
+    }
+
+    // Prevent modal content clicks from closing the modal
+    document.addEventListener('DOMContentLoaded', function() {
+      const modalContents = document.querySelectorAll('[id^="modal-"] > div:last-child');
+      modalContents.forEach(content => {
+        content.addEventListener('click', function(event) {
+          event.stopPropagation();
+        });
+      });
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        const modals = document.querySelectorAll('[id^="modal-"]');
+        modals.forEach(modal => {
+          if (!modal.classList.contains('hidden')) {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
