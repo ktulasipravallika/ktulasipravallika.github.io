@@ -27,9 +27,10 @@ https://github.com/ktulasipravallika/ultimate-devops-project-demo
 
 ## Clone the Project
 
-```bash
+```
 git clone https://github.com/ktulasipravallika/ultimate-devops-project-demo.git
 cd ultimate-devops-project-demo/src
+```
 
 ---
 
@@ -45,9 +46,11 @@ This repo contains ~20 microservices. For now, we will containerize only the **P
 2. Read its `README.md` to confirm the build instructions.
 3. Run the commands below (as mentioned in that README):
 
-```bash
+```
 export PRODUCT_CATALOG_PORT=<any-unique-port>
 go build -o product-catalog .
+
+```
 
 ---
 
@@ -55,9 +58,11 @@ go build -o product-catalog .
 
 - Install `Go` if it’s not already installed:
 
-```bash
+```
 sudo apt install golang-go
 go version
+
+```
 
 
 - Dependencies vary by language and are usually defined in standard files:
