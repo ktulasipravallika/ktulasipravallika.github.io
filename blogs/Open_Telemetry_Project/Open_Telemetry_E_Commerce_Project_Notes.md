@@ -82,4 +82,6 @@ This repo contains ~20 microservices. For now, we will containerize only the **P
 
 - For Go services, dependencies are automatically pulled during build.
 
-`go build -o product-catalog .` --> (-o specifies the name of the output binary. After the command runs successfully, a product-catalog binary is created in the current directory.)
+  `go build -o product-catalog .` --> (-o specifies the name of the output binary. After the command runs successfully, a product-catalog binary is created in the current directory.)
+
+
