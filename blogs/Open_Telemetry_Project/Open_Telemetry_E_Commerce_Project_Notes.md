@@ -46,7 +46,6 @@ This repo contains ~20 microservices. For now, we will containerize only the **P
 
   ```
   cd product-catalog/
-  
   ```
   
 * Read its `README.md` to confirm the build instructions.
@@ -55,12 +54,11 @@ This repo contains ~20 microservices. For now, we will containerize only the **P
   ```
   export PRODUCT_CATALOG_PORT=<any-unique-port>
   go build -o product-catalog .
-  
   ```
 
 ---
 
-### Notes
+##### Notes
 
 - Install `Go` if it’s not already installed:
   
@@ -79,9 +77,16 @@ This repo contains ~20 microservices. For now, we will containerize only the **P
         * Maven: pom.xml
         * Gradle: build.gradle, settings.gradle, etc.
     * Go: go.mod
+---
+*  For Go services, dependencies are automatically pulled during build.
 
-- For Go services, dependencies are automatically pulled during build.
+    `go build -o product-catalog .` --> (-o specifies the name of the output binary. After the command runs successfully, a product-catalog binary is created in the current directory.)
 
-  `go build -o product-catalog .` --> (-o specifies the name of the output binary. After the command runs successfully, a product-catalog binary is created in the current directory.)
-
-
+* To run the binary file.
+  
+    `./product-catalog ` --> This executes the service and outputs the below lines as mentioed in the README.md of the service.
+  
+    ```
+    INFO[0000] Loaded 10 products                           
+    INFO[0000] Product Catalog gRPC server started on port: 8088 
+    ```
