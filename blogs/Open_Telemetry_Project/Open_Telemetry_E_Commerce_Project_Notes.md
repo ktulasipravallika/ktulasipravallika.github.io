@@ -128,6 +128,5 @@ This repo contains ~20 microservices. For now, we will containerize only the **P
     INFO[0000] Loaded 10 products                           
     INFO[0000] Product Catalog gRPC server started on port: 8088 
     ```
----
+-----
 **Note:** Execute the command `sudo usermod -aG docker ubuntu` followed by logout and log in/stop and start the docker if the permission denied error is triggered. 
----
