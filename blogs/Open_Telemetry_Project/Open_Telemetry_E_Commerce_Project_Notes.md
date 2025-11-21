@@ -34,7 +34,7 @@ cd ultimate-devops-project-demo/src
 
 ---
 
-## Product Catalog Service (Containerization Target)
+## Product Catalog Service (Containerization)
 
 This repo contains ~20 microservices. For now, we will containerize only the **Product Catalog Service**.
 
@@ -120,7 +120,7 @@ This repo contains ~20 microservices. For now, we will containerize only the **P
   
      `docker build -t tulasipravallika/product-catalog:v1 .`
    
-* Check the image created using the command docker images.
+* Check the image created using the command `docker images`.
 
 * Execute/ Run the image using the command `docker run -it tulasipravallika/product-catalog:v1`. This gives the below output as mentioned in the README.md of the service.
   
@@ -130,3 +130,87 @@ This repo contains ~20 microservices. For now, we will containerize only the **P
     ```
 -----
 **Note:** Execute the command `sudo usermod -aG docker ubuntu` followed by logout and log in/stop and start the docker if the permission denied error is triggered. 
+
+-----
+
+## Ad Service (Containerization)
+
+### Steps
+
+* Navigate to the `product-catalog` service folder
+  ```
+  cd ad/
+  ```
+  
+* Read the `README.md` of the Ad service to confirm the build instructions.
+
+---
+
+**LOCAL EXECUTION**
+
+  * Install jdk using the command `sudo apt install openjdk-21-jre-headless`
+  * Follow the README.md and execute - `./gradlew installDist`. This command does the following :
+    * Start the Gradle Daemon
+    * Install the dependencies
+    * Perform the compilation
+    * Build the application
+          
+---
+
+**USING DOCKER CONTAINERIZATION OF PRODUCT-CATALOG SERVICE**
+
+* Dockerfile :
+
+      ```
+      FROM eclipse-temurin:21-jdk AS builder
+      
+      WORKDIR /usr/src/app/
+      
+      COPY gradlew* settings.gradle* build.gradle .
+      
+      COPY ./gradle ./gradle
+      
+      RUN chmod +x ./gradlew
+      
+      RUN ./gradlew
+      
+      RUN ./gradlew downloadRepos
+      
+      COPY . .
+      
+      COPY ./pb ./proto
+      
+      RUN chmod +x ./gradlew
+      
+      RUN ./gradlew installDist -PprotoSourceDir=./proto
+      
+      ########################################################
+      
+      FROM eclipse-temurin:21-jre AS release
+      
+      WORKDIR /usr/src/app/
+      
+      COPY --from=builder /usr/src/app ./
+      
+      ENV AD_PORT 9099
+      
+      EXPOSE ${AD_PORT}
+      
+      ENTRYPOINT ["./build/install/opentelemetry-demo-ad/bin/Ad"]
+      ```
+* Build the dockerfile using the command. This creates the image with the name `tulasipravallika/adservice:v1`
+  
+     `docker build -t tulasipravallika/adservice:v1 .`
+   
+* Check the image created using the command `docker images`.
+
+* Execute/ Run the image using the command `docker run -it tulasipravallika/adservice:v1`. This gives the below output as mentioned in the README.md of the service.
+  
+  ```
+  2025-11-21 06:23:09 - oteldemo.AdService - Ad service starting. trace_id= span_id= trace_flags= 
+  SLF4J(W): No SLF4J providers were found.
+  SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+  SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
+  2025-11-21 06:23:09 - oteldemo.AdService - Ad service started, listening on 9099 trace_id= span_id= trace_flags=
+  ```
+
