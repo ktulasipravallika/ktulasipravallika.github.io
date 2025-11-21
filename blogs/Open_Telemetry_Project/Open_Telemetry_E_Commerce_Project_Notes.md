@@ -1,39 +1,74 @@
+## Prerequisites / Tool Installation
 
-### Docker Installation
-
+### Docker Installation (Ubuntu)
+Follow the official Docker Engine install guide:  
 https://docs.docker.com/engine/install/ubuntu/#installation-methods
 
+---
 
-### Kubectl Install
-
+### kubectl Installation (Linux)
+Use the official Kubernetes guide to install `kubectl`:  
 https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-binary-with-curl-on-linux
 
+---
 
-### Terraform install
-
+### Terraform Installation
+Install Terraform using HashiCorp’s official steps:  
 https://developer.hashicorp.com/terraform/install
 
-### Open telemetery Project
+---
 
+## OpenTelemetry Demo Project
+
+Project repo:  
 https://github.com/ktulasipravallika/ultimate-devops-project-demo
 
+---
 
-### Clone the Project
+## Clone the Project
 
+```bash
 git clone https://github.com/ktulasipravallika/ultimate-devops-project-demo.git
 cd ultimate-devops-project-demo/src
 
-##### PRODUCT CATALOG SERVICE
+---
 
-There are around 20 miicro services in this project. Let us just containerise product catalog service from this folder for now.
+## Product Catalog Service (Containerization Target)
 
-#### Steps
+This repo contains ~20 microservices. For now, we will containerize only the **Product Catalog Service**.
 
-Go though README.md which usaully states the steps to build the application. In this case check out the README.md file of product-catalog service which states to execute the below commands.
+---
 
-```
+### Steps
+
+1. Navigate to the `product-catalog` service folder.
+2. Read its `README.md` to confirm the build instructions.
+3. Run the commands below (as mentioned in that README):
+
+```bash
 export PRODUCT_CATALOG_PORT=<any-unique-port>
-go build -o product-catalog . 
-```
+go build -o product-catalog .
 
-Note : Install `go` using command sudo apt install golang-go
+---
+
+### Notes
+
+- Install `Go` if it’s not already installed:
+
+```bash
+sudo apt install golang-go
+go version
+
+
+- Dependencies vary by language and are usually defined in standard files:
+
+- For Example
+    * Python: requirements.txt
+    * Java:
+        * Maven: pom.xml
+        * Gradle: build.gradle, settings.gradle, etc.
+    * Go: go.mod
+
+- For Go services, dependencies are automatically pulled during build.
+
+`go build -o product-catalog .` --> (-o specifies the name of the output binary. After the command runs successfully, a product-catalog binary is created in the current directory.)
