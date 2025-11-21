@@ -42,9 +42,13 @@ This repo contains ~20 microservices. For now, we will containerize only the **P
 
 ### Steps
 
-1. Navigate to the `product-catalog` service folder.
-2. Read its `README.md` to confirm the build instructions.
-3. Run the commands below (as mentioned in that README):
+* Navigate to the `product-catalog` service folder
+      ```
+      cd product-catalog/
+
+      ```
+* Read its `README.md` to confirm the build instructions.
+* Run the commands below (as mentioned in that README):
 
 ```
 export PRODUCT_CATALOG_PORT=<any-unique-port>
