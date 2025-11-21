@@ -42,14 +42,14 @@ This repo contains ~20 microservices. For now, we will containerize only the **P
 
 ### Steps
 
-* Navigate to the `product-catalog` service folder
+1. Navigate to the `product-catalog` service folder
 
   ```
   cd product-catalog/
   ```
   
-* Read its `README.md` to confirm the build instructions.
-* Run the commands below (as mentioned in that README):
+2.  Read its `README.md` to confirm the build instructions.
+3.  Run the commands below (as mentioned in that README):
 
   ```
   export PRODUCT_CATALOG_PORT=<any-unique-port>
@@ -75,13 +75,13 @@ This repo contains ~20 microservices. For now, we will containerize only the **P
         * **Gradle**: build.gradle, settings.gradle, etc.
     * **Go**: go.mod
 ---
-*  For Go services, dependencies are automatically pulled during build.
+4. For Go services, dependencies are automatically pulled during build.
 
     `go build -o product-catalog .`
 
      (-o specifies the name of the output binary. After the command runs successfully, a product-catalog binary is created in the current directory.)
 
-* To run the binary file.
+5. To run the binary file.
   
     `./product-catalog `
 
