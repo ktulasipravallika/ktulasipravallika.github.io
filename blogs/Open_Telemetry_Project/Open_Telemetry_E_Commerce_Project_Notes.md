@@ -46,28 +46,29 @@ This repo contains ~20 microservices. For now, we will containerize only the **P
 
   ```
   cd product-catalog/
+  
   ```
   
 * Read its `README.md` to confirm the build instructions.
 * Run the commands below (as mentioned in that README):
 
-```
-export PRODUCT_CATALOG_PORT=<any-unique-port>
-go build -o product-catalog .
-
-```
+  ```
+  export PRODUCT_CATALOG_PORT=<any-unique-port>
+  go build -o product-catalog .
+  
+  ```
 
 ---
 
 ### Notes
 
 - Install `Go` if it’s not already installed:
-
-```
-sudo apt install golang-go
-go version
-
-```
+  
+  ```
+  sudo apt install golang-go
+  go version
+  
+  ```
 
 
 - Dependencies vary by language and are usually defined in standard files:
