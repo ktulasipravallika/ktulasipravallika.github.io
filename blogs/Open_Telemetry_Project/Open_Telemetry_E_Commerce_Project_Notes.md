@@ -67,24 +67,25 @@ This repo contains ~20 microservices. For now, we will containerize only the **P
   go version
   
   ```
-
-
 - Dependencies vary by language and are usually defined in standard files:
-
-- For Example
-    * Python: requirements.txt
-    * Java:
-        * Maven: pom.xml
-        * Gradle: build.gradle, settings.gradle, etc.
-    * Go: go.mod
+- **For Example**
+    * **Python**: requirements.txt
+    * **Java**:
+        * **Maven**: pom.xml
+        * **Gradle**: build.gradle, settings.gradle, etc.
+    * **Go**: go.mod
 ---
 *  For Go services, dependencies are automatically pulled during build.
 
-    `go build -o product-catalog .` --> (-o specifies the name of the output binary. After the command runs successfully, a product-catalog binary is created in the current directory.)
+    `go build -o product-catalog .`
+
+     (-o specifies the name of the output binary. After the command runs successfully, a product-catalog binary is created in the current directory.)
 
 * To run the binary file.
   
-    `./product-catalog ` --> This executes the service and outputs the below lines as mentioed in the README.md of the service.
+    `./product-catalog `
+
+      This executes the service and outputs the below lines as mentioed in the README.md of the service.
   
     ```
     INFO[0000] Loaded 10 products                           
