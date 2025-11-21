@@ -42,20 +42,35 @@ This repo contains ~20 microservices. For now, we will containerize only the **P
 
 ### Steps
 
-1. Navigate to the `product-catalog` service folder
+* Navigate to the `product-catalog` service folder
   ```
   cd product-catalog/
   ```
   
-2. Read its `README.md` to confirm the build instructions.
-3. Run the commands below (as mentioned in that README):
+* Read the `README.md` of the product-catalog service to confirm the build instructions.
+
+---
+
+**LOCAL EXECUTION**
+
+* Run the commands below (as mentioned in that README):
   ```
   export PRODUCT_CATALOG_PORT=<any-unique-port>
   go build -o product-catalog .
   ```
+* For Go services, dependencies are automatically pulled during build.
+    `go build -o product-catalog .`
+     (-o specifies the name of the output binary. After the command runs successfully, a product-catalog binary is created in the current directory.)
+
+* To run the binary file.
+    `./product-catalog ` - This executes the service and outputs the below lines as mentioned in the README.md of the service.
+    ```
+    INFO[0000] Loaded 10 products                           
+    INFO[0000] Product Catalog gRPC server started on port: 8088 
+    ```
 ---
 
-##### Notes
+**Notes**
 
 - Install `Go` if it’s not already installed:  
   ```
@@ -70,17 +85,11 @@ This repo contains ~20 microservices. For now, we will containerize only the **P
         * **Gradle**: build.gradle, settings.gradle, etc.
     * **Go**: go.mod
 ---
-4. For Go services, dependencies are automatically pulled during build.
-    `go build -o product-catalog .`
-     (-o specifies the name of the output binary. After the command runs successfully, a product-catalog binary is created in the current directory.)
 
-5. To run the binary file.
-    `./product-catalog ` - This executes the service and outputs the below lines as mentioned in the README.md of the service.
-    ```
-    INFO[0000] Loaded 10 products                           
-    INFO[0000] Product Catalog gRPC server started on port: 8088 
-    ```
-6. Now create the Dockerfile
+**USING DOCKER CONTAINERIZATION OF PRODUCT-CATALOG SERVICE**
+
+* Now create the Dockerfile
+  
    ```
     FROM golang:1.22-alpine AS builder
 
@@ -106,14 +115,19 @@ This repo contains ~20 microservices. For now, we will containerize only the **P
     
     ENTRYPOINT ["./product-catalog"]
     ```
-7. Build the dockerfile using the command. This creates the image with the name `tulasipravallika/product-catalog:v1`
+   
+* Build the dockerfile using the command. This creates the image with the name `tulasipravallika/product-catalog:v1`
+  
      `docker build -t tulasipravallika/product-catalog:v1 .`
    
-8. Check the image created using the command docker images. (**Note:** Execute the command `sudo usermod -aG docker ubuntu` followed by logout and log in/stop and start the docker if the permission denied error is triggered. )
+* Check the image created using the command docker images.
 
-9. Execute/ Run the image using the command `docker run -it tulasipravallika/product-catalog:v1`. This gives the below output as mentioned in the README.md of the service.
+* Execute/ Run the image using the command `docker run -it tulasipravallika/product-catalog:v1`. This gives the below output as mentioned in the README.md of the service.
+  
     ```
     INFO[0000] Loaded 10 products                           
     INFO[0000] Product Catalog gRPC server started on port: 8088 
     ```
-
+---
+**Note:** Execute the command `sudo usermod -aG docker ubuntu` followed by logout and log in/stop and start the docker if the permission denied error is triggered. 
+---
