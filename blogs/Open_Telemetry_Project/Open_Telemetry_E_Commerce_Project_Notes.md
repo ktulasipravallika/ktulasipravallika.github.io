@@ -43,10 +43,11 @@ This repo contains ~20 microservices. For now, we will containerize only the **P
 ### Steps
 
 * Navigate to the `product-catalog` service folder
-      ```
-      cd product-catalog/
 
-      ```
+  ```
+  cd product-catalog/
+  ```
+  
 * Read its `README.md` to confirm the build instructions.
 * Run the commands below (as mentioned in that README):
 
