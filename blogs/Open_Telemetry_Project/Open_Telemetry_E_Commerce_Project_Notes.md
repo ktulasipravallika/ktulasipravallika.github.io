@@ -214,3 +214,90 @@ This repo contains ~20 microservices. For now, we will containerize only the **P
   2025-11-21 06:23:09 - oteldemo.AdService - Ad service started, listening on 9099 trace_id= span_id= trace_flags=
   ```
 
+## Recommendation Service (Containerization)
+
+### Steps
+
+* Navigate to the `recommendation` service folder
+  ```
+  cd recommendation/
+  ```
+  
+* Read the `README.md` of the recommendation service to confirm the build instructions.
+
+---
+
+**LOCAL EXECUTION**
+
+  * Install pip and python using the below commands.
+        ```
+        sudo apt install pip
+        sudo pip install python
+        ```
+  * Install requirements into the venv
+    `pip install -r requirements.txt`
+
+  * Execute the main program using `python recommendation_server.py`
+
+**NOTE :**
+
+If there is an error `This environment is externally managed...`, then create a virtual environment and execute the program using below commands.
+
+  * Ensure venv support is installed
+      ```
+      sudo apt update
+      sudo apt install -y python3-full python3-venv
+      ```
+  * Create a venv in your project folder
+      `python3 -m venv .venv`
+
+  * Activate it
+      `source .venv/bin/activate`
+
+  * Upgrade pip tooling inside the venv
+    `python -m pip install --upgrade pip setuptools wheel`
+    
+---
+
+**USING DOCKER CONTAINERIZATION OF PRODUCT-CATALOG SERVICE**
+
+* Dockerfile :
+
+      ```
+      FROM python:3.12-slim-bookworm AS base
+
+      WORKDIR /usr/src/app
+      
+      COPY requirements.txt ./
+      
+      RUN pip install --upgrade pip
+      
+      RUN pip install -r requirements.txt
+      
+      COPY . .
+      
+      ENTRYPOINT ["python","recommendation_server.py"]
+      ```
+* Build the dockerfile using the command. This creates the image with the name `tulasipravallika/recommendation:v1`
+  
+     `docker build -t tulasipravallika/recommendation:v1 .`
+   
+* Check the image created using the command `docker images`.
+
+* Execute/ Run the image using the command `docker run -it tulasipravallika/recommendation:v1`. This gives the below output.
+
+The code shows and error for environment variable, but the containerisation is completed.
+  
+  ```
+  Traceback (most recent call last):
+  File "/usr/src/app/recommendation_server.py", line 130, in <module>
+    service_name = must_map_env('OTEL_SERVICE_NAME')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/src/app/recommendation_server.py", line 119, in must_map_env
+    raise Exception(f'{key} environment variable must be set')
+  Exception: OTEL_SERVICE_NAME environment variable must be set
+  (.venv) ubuntu@ip-172-31-46-54:~/ultimate-devops-project-demo/src/recommendation$ vim Dockerfile 
+  (.venv) ubuntu@ip-172-31-46-54:~/ultimate-devops-project-demo/src/recommendation$ 
+
+  ```
+
