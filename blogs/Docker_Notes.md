@@ -26,5 +26,9 @@ Docker Containers
 
 ## Docker Compose
 
+## Docker init
+
+* This ONLY works with on Docker Desktop.
+* 
 
 ## Commands
