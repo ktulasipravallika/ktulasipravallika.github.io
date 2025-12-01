@@ -1,7 +1,7 @@
 ## Phase 0 – Absolute Foundations
 ### 0.1 Programming Foundations
 [ ] AWS automation (Boto3)
-* Small tools/scripts
+[ ] Small tools/scripts
 * ETL-type jobs (DynamoDB → S3)
 * CI/CD helpers
 
