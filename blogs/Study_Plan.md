@@ -29,11 +29,11 @@
     - [ ] Working with exit codes (`$?`)
 
 - [ ] **0.3 Git & GitHub – Non-negotiable**
-  - [ ] `git init`, `clone`, `add`, `commit`, `push`, `pull`
-  - [ ] Branching: `branch`, `checkout`, `merge`
-  - [ ] Pull Requests & code review flow
-  - [ ] Resolving merge conflicts
-  - [ ] GitHub basics: repos, issues, PRs, branch protection
+  - [x] `git init`, `clone`, `add`, `commit`, `push`, `pull`
+  - [x] Branching: `branch`, `checkout`, `merge`
+  - [x] Pull Requests & code review flow
+  - [x] Resolving merge conflicts
+  - [x] GitHub basics: repos, issues, PRs, branch protection
 
 ---
 
