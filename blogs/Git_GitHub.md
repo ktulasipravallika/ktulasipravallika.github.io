@@ -103,7 +103,7 @@ Useful checks:
 
 ---
 
-### Commands Cheat Sheet (with one-liners)
+### Commands 
 
 origin = default name for remote repo you cloned from or added.  
 upstream (`-u`) = tracks which remote branch your local branch pushes to / pulls from by default.
