@@ -1,13 +1,5 @@
-1. Explain the concept (with AWS/DevOps angle where relevant)
-2. Give **code examples**
-3. Give **exercises + typical interview questions** (with sample answers later in the same section)
-
-You can go through section by section at your own pace today.
-
----
 
 ## 0. Why Python for AWS DevOps (your “why”)
-
 You’re learning Python to:
 
 * **Automate AWS**: create EC2s, VPCs, S3 buckets, IAM users, alarms, etc.
@@ -916,10 +908,7 @@ You should be able to confidently explain and/or write code for:
   * One-off tools
   * Automation scripts
   * Data/metrics collectors
-
----
-
-If you’d like, in your **next message** you can:
+f you’d like, in your **next message** you can:
 
 * Paste any code you tried and I’ll review it like an interviewer, or
 * Ask for a **mock interview** just focused on:
