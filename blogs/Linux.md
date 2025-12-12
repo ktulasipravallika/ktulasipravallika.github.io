@@ -8,9 +8,9 @@ A **shell** is the program (command interpretor) that reads your commands and ru
 
 * `echo` → Prints
   
-  * echo $SHELL 
-  * echo "hello" > file_name → `>` overwrite
-  * echo "hello" >> file_name → `>>` append
+  * `echo $SHELL` 
+  * `echo "hello"` > file_name → `>` overwrite
+  * `echo "hello"` >> file_name → `>>` append
     
 * `pwd`
   
@@ -58,12 +58,12 @@ A **shell** is the program (command interpretor) that reads your commands and ru
           
 * `chmod` → Change Permissions
   
-  * chmod 644 file_name - Provides read and write to owner and read only to group and others.
-  * chmod u+x file_name - Add execute permissions to user.
-  * chmod go-w file_name - Remove write permissions to group and others.
-    * r → 4
-    * w → 2
-    * x → 1
+  * `chmod 644 file_name` - Provides read and write to owner and read only to group and others.
+  * `chmod u+x file_name` - Add execute permissions to user.
+  * `chmod go-w file_name` - Remove write permissions to group and others.
+    * `r` → 4
+    * `w` → 2
+    * `x` → 1
   
 
   
