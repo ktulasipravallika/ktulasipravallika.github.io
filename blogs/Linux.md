@@ -64,6 +64,10 @@ A **shell** is the program (command interpretor) that reads your commands and ru
     * `r` → 4
     * `w` → 2
     * `x` → 1
+* `apropos` - Searches the system’s man-page database.
+  * `apropos network` - searches for the entries with name or description matching 'network'.
+* `sudo mandb` - Updates the mandb
+* 
   
 
   
@@ -76,6 +80,6 @@ A **shell** is the program (command interpretor) that reads your commands and ru
 * `..` → parent directory (one level up)
 * `~`  → your home directory (IMPORTANT: it is `~`, not `!`)
 * `$` →  value of the variable
-* 
+  
 
 
