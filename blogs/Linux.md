@@ -11,6 +11,15 @@ A **shell** is the program (command interpretor) that reads your commands and ru
   * `echo $SHELL` 
   * `echo "hello"` > file_name → `>` overwrite
   * `echo "hello"` >> file_name → `>>` append
+
+* `mkdir` → Make Directory
+
+    * `mkdir -p ~/linux_lab{notes,files,scripts}` → Creates the folder notes, files and scripts
+      * `-p` → Create the directory and any missing parent directories. (without -p, the command fails when the parent folder doesn't exist)
+
+* `touch`
+
+  * `touch file_name` → creates the file.
     
 * `pwd`
   
@@ -22,7 +31,9 @@ A **shell** is the program (command interpretor) that reads your commands and ru
   * `cd /` → go to root directory
   * `cd -` → go to the previous directory (toggle back)
   * `cd /etc` → go to /etc
-    
+
+* `stat file_name` → Gives all the information regarding the file_name.
+
 * `ls` → Lists the files/folders.
   
   * `ls -lsa`
@@ -31,39 +42,39 @@ A **shell** is the program (command interpretor) that reads your commands and ru
     * `-s` → Shows disk space
     * `-h` → human sizes (K/M/G)
     * `-t` = sort by time (newest first)
-
-**Output:** 
-
-    -rw-r--r--  1 manideep manideep   3771 Dec 12 21:10 notes.txt
     
-  * 1st char → **type**
-    * `-` regular file
-    * `d` directory
-    * `l` symlink
-    * `c` char device
-    * `b` block device
-    * `p` pipe
-    * `s` socket
-      
-  * Next 9 chars → **Permissions in 3 groups:**
-    * owner: `rw-`
-    * group: `r--`
-    * others: `r--`
-      
-  * **Link count**
-    * For files: usually 1
-    * For directories: often 2+ (because of `.` and `..`)
-    * For hard links: will be >1
-      
-  * **Owner (user)**
+    **Output:** 
     
-  * **Group**
-    
-  * **Size (bytes)**
-    
-  * **Modified time (mtime)**
-    
-  * **Name (and symlink target)**
+        -rw-r--r--  1 manideep manideep   3771 Dec 12 21:10 notes.txt
+        
+      * 1st char → **type**
+        * `-` regular file
+        * `d` directory
+        * `l` symlink
+        * `c` char device
+        * `b` block device
+        * `p` pipe
+        * `s` socket
+          
+      * Next 9 chars → **Permissions in 3 groups:**
+        * owner: `rw-`
+        * group: `r--`
+        * others: `r--`
+          
+      * **Link count**
+        * For files: usually 1
+        * For directories: often 2+ (because of `.` and `..`)
+        * For hard links: will be >1
+          
+      * **Owner (user)**
+        
+      * **Group**
+        
+      * **Size (bytes)**
+        
+      * **Modified time (mtime)**
+        
+      * **Name (and symlink target)**
           
 * `chmod` → Change Permissions
   
