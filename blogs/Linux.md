@@ -36,7 +36,7 @@ A **shell** is the program (command interpretor) that reads your commands and ru
 
     -rw-r--r--  1 manideep manideep   3771 Dec 12 21:10 notes.txt
     
-  * 1st char = **type**
+  * 1st char → **type**
     * `-` regular file
     * `d` directory
     * `l` symlink
@@ -45,7 +45,7 @@ A **shell** is the program (command interpretor) that reads your commands and ru
     * `p` pipe
     * `s` socket
       
-  * Next 9 chars = **Permissions in 3 groups:**
+  * Next 9 chars → **Permissions in 3 groups:**
     * owner: `rw-`
     * group: `r--`
     * others: `r--`
