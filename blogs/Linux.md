@@ -32,9 +32,8 @@ A **shell** is the program (command interpretor) that reads your commands and ru
     * `-h` → human sizes (K/M/G)
     * `-t` = sort by time (newest first)
 
-**Output:**
-    -rw-r--r--  1 manideep manideep   3771 Dec 12 21:10 notes.txt
-
+**Output:** 
+-rw-r--r--  1 manideep manideep   3771 Dec 12 21:10 notes.txt
           * 1st char = type
             * `-` regular file
             * `d` directory
