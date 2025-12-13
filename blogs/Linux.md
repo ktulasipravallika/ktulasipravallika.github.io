@@ -33,28 +33,28 @@ A **shell** is the program (command interpretor) that reads your commands and ru
     * `-t` = sort by time (newest first)
 
 **Output:** 
--rw-r--r--  1 manideep manideep   3771 Dec 12 21:10 notes.txt
-          * 1st char = type
-            * `-` regular file
-            * `d` directory
-            * `l` symlink
-            * `c` char device
-            * `b` block device
-            * `p` pipe
-            * `s` socket  
-          * Next 9 chars = permissions in 3 groups:
-            * owner: `rw-`
-            * group: `r--`
-            * others: `r--`
-          * Link count
-            * For files: usually 1
-            * For directories: often 2+ (because of `.` and `..`)
-            * For hard links: will be >1  
-          * Owner (user
-          * Group
-          * Size (bytes)
-          * Modified time (mtime)
-          * Name (and symlink target)
+    -rw-r--r--  1 manideep manideep   3771 Dec 12 21:10 notes.txt
+  * 1st char = **type**
+    * `-` regular file
+    * `d` directory
+    * `l` symlink
+    * `c` char device
+    * `b` block device
+    * `p` pipe
+    * `s` socket  
+  * Next 9 chars = **Permissions in 3 groups:**
+    * owner: `rw-`
+    * group: `r--`
+    * others: `r--`   
+  * **Link count**
+    * For files: usually 1
+    * For directories: often 2+ (because of `.` and `..`)
+    * For hard links: will be >1  
+  * **Owner (user)**
+  * **Group**
+  * **Size (bytes)**
+  * **Modified time (mtime)**
+  * **Name (and symlink target)**
           
 * `chmod` → Change Permissions
   
