@@ -33,7 +33,9 @@ A **shell** is the program (command interpretor) that reads your commands and ru
     * `-t` = sort by time (newest first)
 
 **Output:** 
+
     -rw-r--r--  1 manideep manideep   3771 Dec 12 21:10 notes.txt
+    
   * 1st char = **type**
     * `-` regular file
     * `d` directory
@@ -41,19 +43,26 @@ A **shell** is the program (command interpretor) that reads your commands and ru
     * `c` char device
     * `b` block device
     * `p` pipe
-    * `s` socket  
+    * `s` socket
+      
   * Next 9 chars = **Permissions in 3 groups:**
     * owner: `rw-`
     * group: `r--`
-    * others: `r--`   
+    * others: `r--`
+      
   * **Link count**
     * For files: usually 1
     * For directories: often 2+ (because of `.` and `..`)
-    * For hard links: will be >1  
+    * For hard links: will be >1
+      
   * **Owner (user)**
+    
   * **Group**
+    
   * **Size (bytes)**
+    
   * **Modified time (mtime)**
+    
   * **Name (and symlink target)**
           
 * `chmod` → Change Permissions
@@ -64,9 +73,13 @@ A **shell** is the program (command interpretor) that reads your commands and ru
     * `r` → 4
     * `w` → 2
     * `x` → 1
+      
 * `apropos` - Searches the system’s man-page database.
+  
   * `apropos network` - searches for the entries with name or description matching 'network'.
+    
 * `sudo mandb` - Updates the mandb
+
 * 
   
 
