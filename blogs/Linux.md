@@ -3,6 +3,9 @@
 A **shell** is the program (command interpretor) that reads your commands and runs them (for example, `bash` or `zsh`).
 
 * `echo $SHELL` → Checks the default shell
+* #!/bin/bash
+    * Shebang
+    * Required for executable scripts to indicate that the script needs to be executed using /bin/bash to Linux.
 
 ### Commands
 
@@ -91,7 +94,15 @@ A **shell** is the program (command interpretor) that reads your commands and ru
     
 * `sudo mandb` - Updates the mandb
 
-* 
+* './file_name.sh'
+  
+  * Executes the file_name
+  * Requires the 'x' permission to execute.
+    
+* 'bash file_name.sh'
+  
+  * Executes the file_name.
+  * Does not Requires the 'x' permission to execute.
   
 
   
@@ -104,6 +115,9 @@ A **shell** is the program (command interpretor) that reads your commands and ru
 * `..` → parent directory (one level up)
 * `~`  → your home directory (IMPORTANT: it is `~`, not `!`)
 * `$` →  value of the variable
-  
+* `>` → Output Direction
+* '<<' → Here Document
+* './file_name.sh' → Executes the file_name 
+* 'bash file_name.sh' → Executes the file_name
 
 
