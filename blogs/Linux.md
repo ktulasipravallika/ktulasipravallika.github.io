@@ -141,26 +141,27 @@ Program is a file on disk.
 #### Process Commands
 
 * `top`
-  → Shows running processes, continuously updating the process information.
-  → Real-time CPU & memory usage.
-  → Better for live debugging.
+  * Shows running processes, continuously updating the process information.
+  * Real-time CPU & memory usage.
+  * Better for live debugging.
   
 * `htop`
-  → Provides colored output and Mouse support.
-  → Tree view of processes and Easier killing & filtering
+  * Provides colored output and Mouse support.
+  * Tree view of processes and Easier killing & filtering
 
 * `ps`
-  → Shows the snapshot of processes running at a specific moment. 
+  * Shows the snapshot of processes running at a specific moment. 
     * `ps -ef` → Focuses on CPU/memory usage.       {`-e` → Every Process, `-f` → Full Format}
     * `ps aux` → Emphasizes process hierarchy and parent-child relationships.      {`a` → all users `u` → user oriented format `x` → include processes without terminal}
       
 * `kill`
   * `kill process_id`
-     → Allows the process to clean up resources, close files and save state.
-     → Sends signal to terminate and lets process handle the teermination.
-     → TREMINATE GRACEFULLY (signal is called `SIGTERM`)
+     * Allows the process to clean up resources, close files and save state.
+     * Sends signal to terminate and lets process handle the teermination.
+     * `TREMINATE GRACEFULLY` (signal is called `SIGTERM`)
+       
   * `kill -9 process_id`
-     → Kernel immediately kills the process
-     → No cleanup is performed.
-     → Cannot be ignored
-     → TREMINATE FORCEFULLY (signal is called `SIGKILL`)
+     * Kernel immediately kills the process
+     * No cleanup is performed.
+     * Cannot be ignored
+     * `TREMINATE FORCEFULLY` (signal is called `SIGKILL`)
