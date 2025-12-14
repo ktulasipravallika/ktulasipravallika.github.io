@@ -99,6 +99,10 @@ Kernel space runs privileged code, user space runs applications, and system call
     * ngnix
     * mysql
     * python file.py
+      
+* **Parent Process** : A parent process is the provcess that creates another process using fork(). 
+* **Child Process** : *The newly created process after fork() is child process.
+  **Example** : when a shell runs ls, the shell is the parent and ls runs as the child process.
 
 ### Program
 
