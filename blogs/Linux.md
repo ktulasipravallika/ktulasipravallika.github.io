@@ -1,4 +1,4 @@
-## Linux 
+### Linux 
 
 * Linux is an open-source kernel responsible for managing hardware resources such as CPU, memory, devices, and processes.
 * The kernel manages CPU, memory, devices, and provides system calls to user space.
@@ -22,11 +22,11 @@
       * Provides a secure interface between user space and kernel space.
       * Examples: read(), write(), open(), fork()
 
-## Kernel Space vs User Space
+### Kernel Space vs User Space
 
 Kernel space runs privileged code, user space runs applications, and system calls act as the controlled bridge between them.
 
-## **Kernel Space**
+#### **Kernel Space**
    * Where the **Linux kernel runs**
    * Has **full access** to hardware (CPU, memory, devices)
    * Executes **privileged instructions**
@@ -37,7 +37,7 @@ Kernel space runs privileged code, user space runs applications, and system call
       * Device drivers
       * Filesystem code
 
-## **User Space**
+#### **User Space**
 
 * Where **applications run**
 * Has **restricted access**
@@ -50,7 +50,7 @@ Kernel space runs privileged code, user space runs applications, and system call
    * Docker, Java, Python programs
 * `ls` command runs in user space because it is a regular user program. When it needs information (like directory contents), it makes system calls to the kernel, which then accesses the filesystem and returns the results.
 
-## System Call
+### System Call
 
 * A system call is a controlled interface that allows a user-space program to request services from the kernel, such as accessing files, memory, processes, or devices.
 * User programs cannot directly access hardware
@@ -65,13 +65,13 @@ Kernel space runs privileged code, user space runs applications, and system call
 
 * When you type `ls` and press Enter:“The shell forks a process, the child execs `ls`, `ls` uses system calls to read the directory, prints output, exits, and control returns to the shell.”
 
-#### FileSystem and Navigation
+### FileSystem and Navigation
 
-* `/` - The top-level directory of the filesystem. Everything in Linux starts from /.
-* `/etc` - Stores system-wide configuration files.
-* `/var` - Stores variable data that changes over time like var/logs/syslog, /var/log/messages, /var/log/auth.log 
-* `/usr` - Stores user-space programs, libraries, and binaries.
-* `/home` - Contains home directories for users, where personal files live.
+* `/` → The top-level directory of the filesystem. Everything in Linux starts from /.
+* `/etc` → Stores system-wide configuration files.
+* `/var` → Stores variable data that changes over time like var/logs/syslog, /var/log/messages, /var/log/auth.log 
+* `/usr` → Stores user-space programs, libraries, and binaries.
+* `/home` → Contains home directories for users, where personal files live.
 
 ### File Permissions
 
@@ -84,8 +84,83 @@ Kernel space runs privileged code, user space runs applications, and system call
    * `r` means read
    * `w` means write
    * `x` means execute
+
+**Note :**
+
+* Execute on a directory → ability to enter it.
+* Read on a directory → ability to list files.
+  
+### Process
+
+* A **Process** is an instance of a program in execution with its own memory, CPU, state and process ID(PID).
+* Process is an independent running program.
+* It is more expensive to create and switch and is isolated form other processes.
+  * Example :
+    * ngnix
+    * mysql
+    * python file.py
+
+### Program
+
+Program is a file on disk.
+
+### Thread
+
+* A thread is a light weight unit of execution inside a process.
+* Thread share the same memory and are faster to create.
+* If a thread crashes, it can bring down the entire process, because threads share the same memory space.
+  * Examples:
+    * Java threads
+    * Python threads
+  
+ 
+
      
 ## Commands
 
-* `df -h`
-* `du -sh /*`
+* `#!/bin/bash` → Shebang
+* `echo` →
+* `./file_name` →
+* `df -h` → To check the disk usage per filesystem.          {`-h` → human readable format}
+* `du -sh /*` → To check the disk usage of all the directories.
+
+#### File Permissions
+
+* `chmod` → To change the permissions to owner, group, others.
+* `chown` → To change the ownership of a file/directory.
+  
+#### Users and Groups
+
+*  `cat /etc/passwd` →
+*  `cat /etc/group` →
+*  `useradd user_name` →
+*  `userdel user_name` →
+*  `groupadd group-name` →
+*  `groupadel group-name` →
+
+#### Process Commands
+
+* `top`
+  → Shows running processes, continuously updating the process information.
+  → Real-time CPU & memory usage.
+  → Better for live debugging.
+  
+* `htop`
+  → Provides colored output and Mouse support.
+  → Tree view of processes and Easier killing & filtering
+
+* `ps`
+  → Shows the snapshot of processes running at a specific moment. 
+    * `ps -ef` → Focuses on CPU/memory usage.       {`-e` → Every Process, `-f` → Full Format}
+    * `ps aux` → Emphasizes process hierarchy and parent-child relationships.      {`a` → all users `u` → user oriented format `x` → include processes without terminal}
+      
+* `kill`
+  * `kill process_id`
+     → Allows the process to clean up resources, close files and save state.
+     → Sends signal to terminate and lets process handle the teermination.
+     → TREMINATE GRACEFULLY (signal is called `SIGTERM`)
+  * `kill -9 process_id`
+     → Kernel immediately kills the process
+     → No cleanup is performed.
+     → Cannot be ignored
+     → TREMINATE FORCEFULLY (signal is called `SIGKILL`)
