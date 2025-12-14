@@ -127,9 +127,9 @@ Kernel space runs privileged code, user space runs applications, and system call
     
     * **wait():**
       
-      * **General flow** : Parent fork() →  child → Child exits → Parent calls wait() → Kernel removes child from process table → No zombie.
+      * **General flow** : Parent fork() →  Child → Child exits → Parent calls wait() → Kernel removes child from process table → No zombie.
         
-      * **Zombie process** : Parent fork() → child → Child exits → Parent never calls wait() → Zombie process remains.
+      * **Zombie process** : Parent fork() → Child → Child exits → Parent never calls wait() → Zombie process remains.
         
   * To fix Zombie Process :
     *  Kill or restart the parent process
