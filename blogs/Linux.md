@@ -123,9 +123,14 @@ Kernel space runs privileged code, user space runs applications, and system call
   * A zombie process is a process that has finished execution, but still has an entry in the process table.
   * A child process exits, but the parent process doesnot call wait().
   * At this stage kernel keeps minimal info about this process like PID and exit code.
+  * Zombie process cannot be killed because it is alreday dead and it disappears only when parent reaps it using wait().
+    
     * **wait():**
+      
       * **General flow** : Parent fork() →  child → Child exits → Parent calls wait() → Kernel removes child from process table → No zombie.
+        
       * **Zombie process** : Parent fork() → child → Child exits → Parent never calls wait() → Zombie process remains.
+        
   * To fix Zombie Process :
     *  Kill or restart the parent process
     *  Parent must call wait()
@@ -145,8 +150,18 @@ Program is a file on disk.
   * Examples:
     * Java threads
     * Python threads
-  
- 
+   
+
+### Memory Management
+
+* **RAM** : Random Accesss Memory 
+  *  RAM is volatile memory that holds running programs, processes, and data required by the CPU for fast access.
+  *  Its contents are lost when the system is powered off.
+  *  RAM is System memory.
+
+**Swap Memory**
+  *  Swap is disk space used to extend RAM and prevent memory exhaustion when physical memory is full.
+  *  When both RAM and Swap are fully used, the Linux kernel invokes the OOM Killer (Out-Of-Memory Killer), which forcefully terminates one or more processes to free memory.
 
      
 ## Commands
