@@ -76,11 +76,13 @@ Kernel space runs privileged code, user space runs applications, and system call
 ### File Permissions
 
 * Permissions are applied to three categories:
+  
    * Owner (User)
    * Group
    * Others
      
 * Permissions
+  
    * `r` means read
    * `w` means write
    * `x` means execute
@@ -100,10 +102,37 @@ Kernel space runs privileged code, user space runs applications, and system call
     * mysql
     * python file.py
       
-* **Parent Process** : A parent process is the provcess that creates another process using fork(). 
-* **Child Process** : *The newly created process after fork() is child process.
-  **Example** : when a shell runs ls, the shell is the parent and ls runs as the child process.
+* **Parent Process** :
+  
+  * A parent process is the provcess that creates another process using fork().
+    
+* **Child Process** :
+  
+  * The newly created process after fork() is child process.
+  
+**Example** : When a shell runs ls, the shell is the _PARENT_ and ls runs as the _CHILD_ process.
 
+* **Orphan Process** :
+  
+  * If the parent process terminates, the child process become the _ORPHAN_ process.
+  * This process is adopted by the init/systemd process(PID 1).
+  * This child process(Orphan process) still keeps running (DO NOT automatically terminate)
+
+* **Zombie Process** :
+  
+  * A zombie process is a process that has finished execution, but still has an entry in the process table.
+  * A child process exits, but the parent process doesnot call wait().
+  * At this stage kernel keeps minimal info about this process like PID and exit code.
+    * **wait():**
+      * **General flow** : Parent fork() →  child → Child exits → Parent calls wait() → Kernel removes child from process table → No zombie.
+      * **Zombie process** : Parent fork() → child → Child exits → Parent never calls wait() → Zombie process remains.
+  * To fix Zombie Process :
+    *  Kill or restart the parent process
+    *  Parent must call wait()
+    *  Reboot (last resort) 
+
+
+    
 ### Program
 
 Program is a file on disk.
