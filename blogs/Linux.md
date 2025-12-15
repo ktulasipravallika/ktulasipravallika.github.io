@@ -27,6 +27,7 @@
 Kernel space runs privileged code, user space runs applications, and system calls act as the controlled bridge between them.
 
 #### **Kernel Space**
+
    * Where the **Linux kernel runs**
    * Has **full access** to hardware (CPU, memory, devices)
    * Executes **privileged instructions**
@@ -135,8 +136,6 @@ Kernel space runs privileged code, user space runs applications, and system call
     *  Kill or restart the parent process
     *  Parent must call wait()
     *  Reboot (last resort) 
-
-
     
 ### Program
 
@@ -151,19 +150,44 @@ Program is a file on disk.
     * Java threads
     * Python threads
    
-
 ### Memory Management
 
-* **RAM** : Random Accesss Memory 
+* **RAM** : Random Accesss Memory
+  
   *  RAM is volatile memory that holds running programs, processes, and data required by the CPU for fast access.
   *  Its contents are lost when the system is powered off.
   *  RAM is System memory.
 
 **Swap Memory**
+
   *  Swap is disk space used to extend RAM and prevent memory exhaustion when physical memory is full.
   *  When both RAM and Swap are fully used, the Linux kernel invokes the OOM Killer (Out-Of-Memory Killer), which forcefully terminates one or more processes to free memory.
 
-     
+### CPU & Load
+
+**CPU Usage**:  
+  
+  * CPU Usage is the number of processes actively executing/running on the CPU.
+    
+**CPU Load** 
+
+  * CPU load indicates the number of processes that are either running on the CPU or waiting to run.
+
+**Load Average** 
+
+  * Load average is average number of proceses that are running or waiting for CPU over a period of time (1 Minute, 5 Minutes, 15 Minutes).
+
+### Files, Directories and Logs
+
+**Files** : 
+
+  * A file stores data, such as text, scripts, or binaries.
+    
+**Directories** :
+
+  * A directory is a container that holds files and other directories.
+
+
 ## Commands
 
 * `#!/bin/bash` → Shebang
@@ -213,3 +237,53 @@ Program is a file on disk.
      * No cleanup is performed.
      * Cannot be ignored
      * `TREMINATE FORCEFULLY` (signal is called `SIGKILL`)
+
+#### Memory
+
+* `free -h` → Shows total, used, free RAM and swap.
+  
+* `ps aux` → Shows memory usage (%MEM, RSS) per process.
+  
+* `top` → Shows per-process memory usage in real time.
+
+#### CPU & Load
+
+* `uptime` → Quick health check, shows the load averages for 1 minute, 5 minutes, 15 minutes.
+  
+* `top` & `ps aux` → Also shows the CPU Usage.
+  
+  * `wa` tag in top command shouws the I/O wait time.
+  * `ni` tag shows indicates the priority of a process.Higher nice values mean lower priority.
+ 
+#### Files, Directories and Logs
+
+* `ls`
+  
+  * `ls -l`
+  * `ls -a`
+  * `ls -A`
+    
+* `.` → current directory
+* `..` → parent directory
+  
+* `cat` → non-interactive, prints entire file.
+  
+* `less`
+  
+  * Loads the file page by page and navigation is better.
+  * `/pattern` → To search any pattern/word.
+  * `n` → Next Match
+  * `N` → Pervious Match
+  * `G` → End of the file
+  * `g` → Start of the file
+  * `q` → Quit
+    
+* `more` →
+  
+* `tail` →
+  
+* `vim` → interactive editor, Ideal just for editing files.
+
+
+
+
