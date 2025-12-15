@@ -79,7 +79,7 @@ Kernel space runs privileged code, user space runs applications, and system call
 * Permissions are applied to three categories:
   
    * Owner (User)
-   * Group
+   * Group 
    * Others
      
 * Permissions
@@ -88,11 +88,48 @@ Kernel space runs privileged code, user space runs applications, and system call
    * `w` means write
    * `x` means execute
 
-**Note :**
+**Note** :
 
 * Execute on a directory → ability to enter it.
 * Read on a directory → ability to list files.
-  
+
+### Users
+
+**Linux user** :
+
+  * A Linux user is an account that represents a person or service interacting with the system, identified by a user ID (UID) and used to control permissions and access.
+
+**Root User** : 
+
+  * The root user is the superuser with unrestricted access to the entire system.
+  * UID is 0.
+
+**Sudo** :
+
+  * `sudo` allows a regular users to execute specific commands with root (superuser) privileges, based on permissions defined in the system.
+  * sudo actions are logged in `/var/log/auth.log`.
+  * Uses:
+    * Improves security.
+    * Provides audit logs.
+    * Limits who can run what.
+    * Reduces accidental system damage.
+  * `/etc/sudoers` → defines which users or groups are allowed to use `sudo` and what commands can they run.
+  * `visudo` → Opens the file which consists details about sudo users.
+
+### Groups
+
+**Linux Group** :
+
+  * A Linux Group is a collection of users used to manage permissions and access to files and resources collectively.
+
+**Primary Group:**
+
+  * A primary group is the main group associated with a user and is used by default when the user creates files.
+
+**Secondary Group:**
+
+  * Secondary (supplementary) groups are additional groups that grant extra permissions to the user.
+    
 ### Process
 
 * A **Process** is an instance of a program in execution with its own memory, CPU, state and process ID(PID).
@@ -187,6 +224,11 @@ Program is a file on disk.
 
   * A directory is a container that holds files and other directories.
 
+### Netwroking Basics
+
+DNS : Domain Name System 
+
+* Translate the human readable domain names into O+IP addresses so systems can locate each other on a network.
 
 ## Commands
 
@@ -209,6 +251,9 @@ Program is a file on disk.
 *  `userdel user_name` →
 *  `groupadd group-name` →
 *  `groupadel group-name` →
+*  `group user_name`
+*  `id user_name`
+*  
 
 #### Process Commands
 
@@ -238,6 +283,13 @@ Program is a file on disk.
      * Cannot be ignored
      * `TREMINATE FORCEFULLY` (signal is called `SIGKILL`)
 
+#### Disk and File Systems
+
+* `df -h`
+* `du -sh /*`
+* `mount`
+* `lsblk`
+
 #### Memory
 
 * `free -h` → Shows total, used, free RAM and swap.
@@ -254,7 +306,12 @@ Program is a file on disk.
   
   * `wa` tag in top command shouws the I/O wait time.
   * `ni` tag shows indicates the priority of a process.Higher nice values mean lower priority.
- 
+
+#### Services and Systemd
+
+* `systemctl`
+* `journalctl`
+  
 #### Files, Directories and Logs
 
 * `ls`
@@ -280,10 +337,51 @@ Program is a file on disk.
     
 * `more` →
   
-* `tail` →
+* `tail` → To view last set of lines
+  
+* `head`
   
 * `vim` → interactive editor, Ideal just for editing files.
+  
+* `grep`
+  * `-i`
+  * `-n`
+  * `-c`
+  * `-r`
+  * `-R`
+    
+* `find` → Searches the filesystem in real time.
+  * `-name`
+  * `-type`
+  * `-iname`
+  * `-mtime`
+  * ``size`
+ 
+* `locate` → Searches a cached database and is much faster but can be outdated.
 
+### Netwroking
+
+* `nslookup` →
+* `dig` →
+  * `A record` maps domain name to IPV4 Address
+  * `AAAA record` maps domain name to IPV6 Address.
+  * `CNAME` maps to alias to another domain.
+  * `MX` maps to mail servers
+* `host` →
+* `ping` → Checks if the server is reachable over the network or not.
+* `curl`
+* `telnet`
+* `nc`
+* `ss -tuln`
+* `netstat -tuln`
+
+#### Default Ports 
+
+* HTTP → 80
+* HTTPS → 443
+* SSH → 22
+* DNS → 53
+* FTP → 21
 
 
 
