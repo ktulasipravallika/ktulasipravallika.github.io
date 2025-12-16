@@ -241,7 +241,6 @@ DNS : Domain Name System
 * `#!/bin/bash` → Shebang
 * `./file_name` →
 
-
 #### Users and Groups
 
 * `cat /etc/passwd` →
@@ -333,15 +332,37 @@ DNS : Domain Name System
 
 * `ls` → Lists the files
   
-  * `ls -l` → long format.
-  * `ls -a` → includes hidden files/folders like `.` and `..`
-  * `ls -A` → includes hidden files/folders apart from `.` and `..`
-    
+  * `ls -l` → Long Format.
+  * `ls -a` → Includes hidden files/folders like `.` and `..`
+  * `ls -A` → Includes hidden files/folders except `.` and `..`
+  * `ls -lh` → Human readable sizes.
+  * **Output : -rw-r--r--  1 user group  1234 Jan 10 file.txt**
+    * `-`	→ File Type {`-` → Regular File, `l` → Symbolic Link,`b` → Block Device(disk) , `s` → Socket, `d` → directory}
+    * `rw-r--r--` →	permissions
+    * `1`	→ link count
+    * `user` →	owner
+    * `group` → group
+    * `1234` →	size (in bytes)
+    * `Jan 10` →	mtime
+
 * `.` → current directory
   
 * `..` → parent directory
 
-* `echo` → 
+* `echo` → Prints text or variables to stdout.
+  
+  * echo "hello" → Prints word "hello"
+  * echo $HOME → Prints the value of HOME.
+  * echo "log entry">>app.log → Redirects the "log entry" to app.log file.
+ 
+* `printf` → Used to print the formatted output.
+  * `printf "Hello World \n"` → {`\n` → Moves cursor to next line, `\t` → Spaces/tab, `\\` → Backslash }
+  * ```
+      name="Alice"
+      age=25
+      printf "Name: %s, Age: %d\n" "$name" "$age" 
+    ```
+    * Prints Name: Alice, Age: 25  {`%s` → `string`, `%d` → `integer`, `%f`	→ `float`}
 
 * `pwd` → Print Working Directory              
   
@@ -350,41 +371,65 @@ DNS : Domain Name System
     * `cd ..` → parent directory
     * `cd -` → previous directory
     * `cd /` → root
-  
+    * cd /path || exit 1` → Try to change the directory and if it fails exit script with error.
+      
 * `stat file_name` → Provides all the informations like mtime, ctime, inode, timestamps and dilesystem details of the file_name.
   * `mtime` → Content Modification Time.
   * `ctime` → Metadata changed Time, including permissions, ownership, and also content changes.
   * `atime` → Last Access Time.
   * `ctime` → cannot be modified manually where as `atime` and `mtime` can be modified using touch commands.
 
-* `file file_name` → Detects file type based on content, not extension.
+* `file` → Detects file type based on content, not extension.
+  * `file file_name`
   
 * `cat` → non-interactive, prints entire file.
+  * `cat file_name` → Shows the contents of the file. 
+  * `cat>file_name` → Creates the file and opens editor and writes content to the file.
+  * `cat>>file_name` → Append content to the file.
   
-* `less`
-  
-  * Loads the file page by page and navigation is better.
-  * `/pattern` → To search any pattern/word.
-  * `n` → Next Match
-  * `N` → Pervious Match
-  * `G` → End of the file
-  * `g` → Start of the file
-  * `q` → Quit
-    
-* `more` →
-  
+* `less` → Loads the file page by page and navigation is better.
+  * `load file_name`  
+    * `/pattern` → To search any pattern/word.
+    * `n` → Next Match
+    * `N` → Pervious Match
+    * `G` → End of the file
+    * `g` → Start of the file
+    * `q` → Quit
+
+* `head` → Shows the starting lines of the file.
+  * `head file.txt` → Dispalys the firsy 10 lines of the file.
+  * `head -n 20 file.txt`  → Dispalys the first 50 lines of the file.
+   
 * `tail` → To view last set of lines
-  
-* `head` →
-  
+  * `tail file.txt` → Dispalys the last 10 lines of the file.
+  * `tail -n 50 file.txt` → Dispalys the last 50 lines of the file.
+  * `tail -f app.log` → Used to view the live logs.
+
 * `vim` → interactive editor, Ideal just for editing files.
+  * `i` → insert mode.
+  * `:wq` → write and quit.
+  * `q!` → quit.
+  * `gg` → Go to top of the file.
+  * `G` → Go to bottom of the page.
+  * `:4` or `:"4gg` → Got to line 4.
+  * `yy` → Copy current line.
+  * `3yy` → Copy the 3 lines from cursor.
+  * `p` → Paste the content below cursor.
+  * `3p` → Pastes the content 3 times.
+  * `u` → Undo
+  * `R` or `ctrl+r` → Redo
+  * `/pattern` → Highlights matching patterns
+  * `n` → Shows next match
+  * `N` → Shows previous match
+  * `Esc` → exits the search mode
+  * `:34` → Shows line number 34
   
-* `grep`
-  * `-i`
-  * `-n`
-  * `-c`
-  * `-r`
-  * `-R`
+* `grep` → Searches the patterns in text
+  * `-i` → `grep -i "error" file_name` → Ignore Case and search
+  * `-n` → `grep -n "error" file_name` → Show Line Numbers
+  * `-c` → `grep -c "error" file_name` → Count of matching pattern
+  * `-r` → `grep -r "error" folder_path` → recursive search in folder
+  * `-R` → `grep -R "error" folder_path` → follows symlink 
     
 * `find` → Searches the filesystem in real time.
   * `-name` → `find /var/log -name "*.log"`
@@ -400,16 +445,23 @@ DNS : Domain Name System
       * Batch executes the files.
       * Faster execution. 
  
-* `locate` → Searches a cached database and is much faster but can be outdated.
+* `locate` → Searches for the files.
+  * Searches in a cached database and is much faster but can be outdated.
+  * `locate filename`
 
-* `journctl -xe` →
+* `journctl` → Reads system logs from systemd.
+  * `journalctl -xe`   {`-x` → Extra Expalantion, `-e` → Jump to recent logs}
+  * `journalctl -u ssh -xe`
+  * `journalctl --since "1 hour ago"`
 
 * `rm`
   * `-i` → Keeps the deletion process interactive. Rechecks before deleting.
   * `-r` → Recursive deletion, Used for deletion of files in folders.
   * `-f` → Force Deletion, No prompts are given.
-    
 
+* `ln` → Used to create links between files
+  * `ln target_file symlink_name` 
+    
 #### File Permissions
 
 * `chmod` → To change the permissions to owner, group, others.
