@@ -412,8 +412,8 @@ DNS : Domain Name System
 
 #### File Permissions
 
-* `chmod` →
-  * To change the permissions to owner, group, others.
+* `chmod` → To change the permissions to owner, group, others.
+  
     * `chmod g+w` → Add write permissions to groups.
     * `chmod u-x` → Removes execute permissions to user(owner).
     * Notations for providing permissions.
@@ -422,31 +422,58 @@ DNS : Domain Name System
       * `execute` → `1`
         
 * `chown` → To change the ownership of a file/directory.
+  
   * `chown user_name:group_name file_name`   
 
 ### Netwroking
 
-* `nslookup` →
+* `nslookup` → Queries DNS servers to resolve domain names to IP addresses(and vice versa).
   
-* `dig` →
-  * `A record` maps domain name to IPV4 Address
-  * `AAAA record` maps domain name to IPV6 Address.
-  * `CNAME` maps to alias to another domain.
-  * `MX` maps to mail servers
+  * `nslookup amazon.com`
+  * `nslookup 8.8.8.8`
     
-* `host` →
+* `dig` → Powerful DNS query tool with detailed output.
+
+  * `dig google.com`  
+  * Records:
+    * `A record` maps domain name to IPV4 Address
+    * `AAAA record` maps domain name to IPV6 Address.
+    * `CNAME` maps to alias to another domain.
+    * `MX` maps to mail servers
+    * `NS` maps to Name Servers     
+  * Status :
+    * `NOERROR` → Success
+    * `NXDOMAIN` → Domain doesn’t exist
+    * `SERVFAIL` → DNS server failure
+    
+* `host` → Lightweight DNS query tool.
+  *  `host google.com`
+  *  `host 8.8.8.8`
   
-* `ping` → Checks if the server is reachable over the network or not.
+* `ping` → Used to check the reachability, network connectivity check and latency.   {**ICMP** is a network-layer protocol used for diagnostics and error reporting, not for application data.}
+  * Sends the ICMP(Internet Control Message Protocol) Echo Requests. 
+  * `ping google.com`
+  * `ping -c 4 google.com`  {`-c` → Sends exactly 4 packets and stops}
+  * `ping -c 4 8.8.8.8`
   
-* `curl` →
+* `curl` → Transfers data using HTTP, HTTPS, FTP, etc.
+  * `curl google.com`
+  * `curl -I https://google.com` 
   
-* `telnet` →
+* `telnet` → Checks if a TCP port is reachable.
+  * `telnet google.com 80`
   
-* `nc` →
+* `nc` → Reads/writes data over TCP/UDP.
+  * `nc -zv google.com 443` → Test port connectivity
+  * `nc -l 8080` → Start a listener
   
-* `ss -tuln` →
+* `ss -tuln` → Shows listening ports and connections.
+  * `-t` → TCP
+  * `-u` → UDP
+  * `-l` → Listening
+  * `-n` → Numeric
   
-* `netstat -tuln` →
+* `netstat -tuln` → legacy version of `ss`
 
 #### Default Ports 
 
