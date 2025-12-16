@@ -224,19 +224,23 @@ Program is a file on disk.
 
   * A directory is a container that holds files and other directories.
 
+**Paths** :
+
+  * **Absolute Path** → /home/ubuntu/projects (starts from /)
+    
+  * **Relative Path** → projects  # relative (from current directory)               
+
 ### Netwroking Basics
 
 DNS : Domain Name System 
 
-* Translate the human readable domain names into O+IP addresses so systems can locate each other on a network.
+* Translate the human readable domain names into IP addresses so systems can locate each other on a network.
 
 ## Commands
 
 * `#!/bin/bash` → Shebang
-* `echo` →
 * `./file_name` →
-* `df -h` → To check the disk usage per filesystem.          {`-h` → human readable format}
-* `du -sh /*` → To check the disk usage of all the directories.
+
 
 #### Users and Groups
 
@@ -327,22 +331,34 @@ DNS : Domain Name System
   
 #### Files, Directories and Logs
 
-* `ls`
+* `ls` → Lists the files
   
-  * `ls -l`
-  * `ls -a`
-  * `ls -A`
+  * `ls -l` → long format.
+  * `ls -a` → includes hidden files/folders like `.` and `..`
+  * `ls -A` → includes hidden files/folders apart from `.` and `..`
     
 * `.` → current directory
+  
 * `..` → parent directory
 
-* `pwd`
-  
-* `cd`
-  
-* `stat file_name`
+* `echo` → 
 
-* file 
+* `pwd` → Print Working Directory              
+  
+* `cd` → Change Directory
+    * `cd ~` → home directory
+    * `cd ..` → parent directory
+    * `cd -` → previous directory
+    * `cd /` → root
+  
+* `stat file_name` → Provides all the informations like mtime, ctime, inode, timestamps and dilesystem details of the file_name.
+  * `mtime` → Content Modification Time.
+  * `ctime` → Metadata changed Time, including permissions, ownership, and also content changes.
+  * `atime` → Last Access Time.
+  * `ctime` → cannot be modified manually where as `atime` and `mtime` can be modified using touch commands.
+
+* `file file_name` → Detects file type based on content, not extension.
+  
 * `cat` → non-interactive, prints entire file.
   
 * `less`
@@ -359,7 +375,7 @@ DNS : Domain Name System
   
 * `tail` → To view last set of lines
   
-* `head`
+* `head` →
   
 * `vim` → interactive editor, Ideal just for editing files.
   
@@ -371,20 +387,42 @@ DNS : Domain Name System
   * `-R`
     
 * `find` → Searches the filesystem in real time.
-  * `-name`
-  * `-type`
-  * `-iname`
-  * `-mtime`
-  * ``size`
+  * `-name` → `find /var/log -name "*.log"`
+  * `-type` → `find /etc -type f` {type can be `f` → `File`, `d` → `Directory`, `l` → `Symbolic Link`}
+  * `-iname` → `find . -iname "readme*"` → Ignore case of name.
+  * `-mtime` → `-mtime -1` {Modified in last 1 day}
+  * `-size` → `find / -type f -size +100M` {Files larger than 100MB}
+  * `-exec` → `find . -type f -exec ls -lh {} \;`
+    * `\;`
+      * Runs command once per file.
+      * Safer during changes and deletion commands.
+    * `+`
+      * Batch executes the files.
+      * Faster execution. 
  
 * `locate` → Searches a cached database and is much faster but can be outdated.
 
-* `journctl -xe`
+* `journctl -xe` →
+
+* `rm`
+  * `-i` → Keeps the deletion process interactive. Rechecks before deleting.
+  * `-r` → Recursive deletion, Used for deletion of files in folders.
+  * `-f` → Force Deletion, No prompts are given.
+    
 
 #### File Permissions
 
-* `chmod` → To change the permissions to owner, group, others.
+* `chmod` →
+  * To change the permissions to owner, group, others.
+    * `chmod g+w` → Add write permissions to groups.
+    * `chmod u-x` → Removes execute permissions to user(owner).
+    * Notations for providing permissions.
+      * `read` → `4`
+      * `write` → `2`
+      * `execute` → `1`
+        
 * `chown` → To change the ownership of a file/directory.
+  * `chown user_name:group_name file_name`   
 
 ### Netwroking
 
@@ -400,15 +438,15 @@ DNS : Domain Name System
   
 * `ping` → Checks if the server is reachable over the network or not.
   
-* `curl`
+* `curl` →
   
-* `telnet`
+* `telnet` →
   
-* `nc`
+* `nc` →
   
-* `ss -tuln`
+* `ss -tuln` →
   
-* `netstat -tuln`
+* `netstat -tuln` →
 
 #### Default Ports 
 
