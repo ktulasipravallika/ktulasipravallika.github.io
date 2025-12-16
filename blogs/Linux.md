@@ -324,9 +324,17 @@ DNS : Domain Name System
 
 #### Services and Systemd
 
-* `systemctl`
+* `systemctl` → systemctl is the control interface for systemd, the init system that starts, stops, manages boot order and handles logs(with journalctl)
+  * `systemctl status ssh` → Check service status
+  * `systemctl start nginx` → Start the service
+  * `systemctl stop nginx` → Stop the service
+  * `systemctl restart nginx` → Restart the service
+  * `systemctl reload nginx` → Reload the service
   
-* `journalctl`
+* `journalctl` → Reads system logs from systemd.
+  * `journalctl -xe`   {`-x` → Extra Expalantion, `-e` → Jump to recent logs}
+  * `journalctl -u ssh -xe`
+  * `journalctl --since "1 hour ago"`
   
 #### Files, Directories and Logs
 
@@ -448,11 +456,6 @@ DNS : Domain Name System
 * `locate` → Searches for the files.
   * Searches in a cached database and is much faster but can be outdated.
   * `locate filename`
-
-* `journctl` → Reads system logs from systemd.
-  * `journalctl -xe`   {`-x` → Extra Expalantion, `-e` → Jump to recent logs}
-  * `journalctl -u ssh -xe`
-  * `journalctl --since "1 hour ago"`
 
 * `rm`
   * `-i` → Keeps the deletion process interactive. Rechecks before deleting.
