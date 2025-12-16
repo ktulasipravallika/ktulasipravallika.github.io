@@ -13,11 +13,11 @@
       * Virtual memory
       * Paging and swapping
    * Device Management
-      * Communicates with hardware via device drivers
-      * Abstracts hardware details from user programs
+      * Communicates with hardware via device drivers.
+      * Abstracts hardware details from user programs.
    * File System Management
-      * Handles files, directories, permissions
-      * Interfaces with filesystems like ext4, xfs
+      * Handles files, directories, permissions.
+      * Interfaces with filesystems like ext4, xfs.
    * System Call Interface
       * Provides a secure interface between user space and kernel space.
       * Examples: read(), write(), open(), fork()
@@ -28,10 +28,10 @@ Kernel space runs privileged code, user space runs applications, and system call
 
 #### **Kernel Space**
 
-   * Where the **Linux kernel runs**
-   * Has **full access** to hardware (CPU, memory, devices)
-   * Executes **privileged instructions**
-   * A bug here can **crash the entire system**
+   * Where the **Linux kernel runs**.
+   * Has **full access** to hardware. (CPU, memory, devices)
+   * Executes **privileged instructions**.
+   * A bug here can **crash the entire system**.
    * Examples: 
       * Process scheduler
       * Memory manager
@@ -40,23 +40,23 @@ Kernel space runs privileged code, user space runs applications, and system call
 
 #### **User Space**
 
-* Where **applications run**
-* Has **restricted access**
-* Cannot directly access hardware
-* Must request services from kernel
+* Where **applications run**.
+* Has **restricted access**.
+* Cannot directly access hardware.
+* Must request services from kernel.
 * Examples:
    * Shell (`bash`)
    * Commands (`ls`, `ps`, `grep`)
-   * Applications (databases, web servers)
-   * Docker, Java, Python programs
+   * Applications (databases, web servers).
+   * Docker, Java, Python programs.
 * `ls` command runs in user space because it is a regular user program. When it needs information (like directory contents), it makes system calls to the kernel, which then accesses the filesystem and returns the results.
 
 ### System Call
 
 * A system call is a controlled interface that allows a user-space program to request services from the kernel, such as accessing files, memory, processes, or devices.
-* User programs cannot directly access hardware
-* Kernel protects the system from unsafe operations
-* System calls provide a safe boundary
+* User programs cannot directly access hardware.
+* Kernel protects the system from unsafe operations.
+* System calls provide a safe boundary.
 * Examples of System Calls :
    * open() → open a file
    * read() → read from file or device
@@ -238,22 +238,27 @@ DNS : Domain Name System
 * `df -h` → To check the disk usage per filesystem.          {`-h` → human readable format}
 * `du -sh /*` → To check the disk usage of all the directories.
 
-#### File Permissions
-
-* `chmod` → To change the permissions to owner, group, others.
-* `chown` → To change the ownership of a file/directory.
-  
 #### Users and Groups
 
-*  `cat /etc/passwd` →
-*  `cat /etc/group` →
-*  `useradd user_name` →
-*  `userdel user_name` →
-*  `groupadd group-name` →
-*  `groupadel group-name` →
-*  `group user_name`
-*  `id user_name`
-*  
+* `cat /etc/passwd` →
+  
+* `cat /etc/group` →
+  
+* `useradd user_name` →
+  
+* `userdel user_name` →
+  
+* `groupadd group-name` →
+  
+* `groupadel group-name` →
+  
+* `groups user_name` →
+  
+* `id user_name` →
+  
+* `sudo -l` →
+
+* `whoami →
 
 #### Process Commands
 
@@ -283,11 +288,16 @@ DNS : Domain Name System
      * Cannot be ignored
      * `TREMINATE FORCEFULLY` (signal is called `SIGKILL`)
 
+  * `pkill process_id` 
+
 #### Disk and File Systems
 
 * `df -h`
+  
 * `du -sh /*`
+  
 * `mount`
+  
 * `lsblk`
 
 #### Memory
@@ -301,6 +311,8 @@ DNS : Domain Name System
 #### CPU & Load
 
 * `uptime` → Quick health check, shows the load averages for 1 minute, 5 minutes, 15 minutes.
+
+* `vmstat`
   
 * `top` & `ps aux` → Also shows the CPU Usage.
   
@@ -310,6 +322,7 @@ DNS : Domain Name System
 #### Services and Systemd
 
 * `systemctl`
+  
 * `journalctl`
   
 #### Files, Directories and Logs
@@ -322,7 +335,14 @@ DNS : Domain Name System
     
 * `.` → current directory
 * `..` → parent directory
+
+* `pwd`
   
+* `cd`
+  
+* `stat file_name`
+
+* file 
 * `cat` → non-interactive, prints entire file.
   
 * `less`
@@ -359,20 +379,35 @@ DNS : Domain Name System
  
 * `locate` → Searches a cached database and is much faster but can be outdated.
 
+* `journctl -xe`
+
+#### File Permissions
+
+* `chmod` → To change the permissions to owner, group, others.
+* `chown` → To change the ownership of a file/directory.
+
 ### Netwroking
 
 * `nslookup` →
+  
 * `dig` →
   * `A record` maps domain name to IPV4 Address
   * `AAAA record` maps domain name to IPV6 Address.
   * `CNAME` maps to alias to another domain.
   * `MX` maps to mail servers
+    
 * `host` →
+  
 * `ping` → Checks if the server is reachable over the network or not.
+  
 * `curl`
+  
 * `telnet`
+  
 * `nc`
+  
 * `ss -tuln`
+  
 * `netstat -tuln`
 
 #### Default Ports 
