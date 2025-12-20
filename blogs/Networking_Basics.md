@@ -35,7 +35,7 @@
         * HTTP entry point
         * Routes by hostname/path
 
-#### Linux + network view
+#### Linux + Network view
 
 Application → DNS Lookup (Name → IP) → Routing (ip route) → Gateway → Destination IP
 
