@@ -37,18 +37,11 @@
 
 #### Linux + network view
 
-Application
-   ↓
-DNS Lookup (Name → IP)
-   ↓
-Routing (ip route)
-   ↓
-Gateway
-   ↓
-Destination IP
+Application → DNS Lookup (Name → IP) → Routing (ip route) → Gateway → Destination IP
 
 ##### Full Path
 
+```text
 app.company.com
    ↓ DNS
 34.120.10.5
@@ -68,6 +61,7 @@ k8s pod
 ClusterIP
    ↓ Ingress
 Routes to backend
+```
 
 #### Linux + network view
 
