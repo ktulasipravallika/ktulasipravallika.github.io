@@ -482,6 +482,15 @@ DNS : Domain Name System
 
 ### Netwroking
 
+* `ip a` → Shows all the network interfaces & IPs.
+  
+* `ip route`
+   
+  * This shows where the packets are sent.
+  * The most specific route wins, local subnets bypass gateways, and the default route forwards unknown traffic to the router.
+  
+* `hostname -I`
+  
 * `nslookup` → Queries DNS servers to resolve domain names to IP addresses(and vice versa).
   
   * `nslookup amazon.com`
@@ -527,9 +536,15 @@ DNS : Domain Name System
   * `-u` → UDP
   * `-l` → Listening
   * `-n` → Numeric
+
+* `traceroute url`
+  * `traceroute google.com`
+  * It is a network diagnostic tool that maps the path packets take from your computer to a destination. 
   
 * `netstat -tuln` → legacy version of `ss`
 
+* `lsof -i :80` → To check which process is using port 80.
+  
 #### Default Ports 
 
 * HTTP → 80
@@ -537,6 +552,8 @@ DNS : Domain Name System
 * SSH → 22
 * DNS → 53
 * FTP → 21
+* MySQL → 3306
+* Postgres → 5432
 
 
 
