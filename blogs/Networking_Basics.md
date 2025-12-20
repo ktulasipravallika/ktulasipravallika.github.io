@@ -12,8 +12,8 @@
     **Subnet**  → Defines who is directly reachable
     **Firewall Layers**
     * Host firewall	→ iptables / nftables
-    * Cloud firewall →	AWS Security Group
-    * Network firewall →	NACL
+    * Cloud firewall →	AWS Security Group(Stateful)
+    * Network firewall →	NACL(Stateless)
   
 * Firewall → Port → Process
     * **Port** → Logical endpoint on a machine
@@ -101,6 +101,11 @@ Destination IP
 * TTL is Time To Live. (in Seconds)
 
 * Caches the result for n seconds.
+
+#### Ports & Protocols
+
+* Route the tarffic to the right application
+
 
 ##### Commands 
 
