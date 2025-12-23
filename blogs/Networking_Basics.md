@@ -11,8 +11,6 @@ Real-world analogy
 
 **Networking** is "How computers find each other and exchange data"
 
-**What networking answers?**
-
 Every networking problem boils down to these 5 questions:
 
 * Who are you talking to? → IP / DNS
@@ -67,24 +65,52 @@ Every networking problem boils down to these 5 questions:
   * MySQL → 3306
   * Postgres → 5432
 
+#### PROTOCOLS
+
+**TCP**
+ * Transmission Control Protocol
+ * Reliable and Connection Oriented Protocol that guarantees delivery and ordering of packets.
+ * Example : HTTP, HTTPS, SSH, FTP, SMPT
+
+**UDP**
+ * User Datagram Protocol
+ * Connectionless protocol prioritizes speed and low latency.
+ * Example : DNS, Video Streaming, Online Gaming, VoIP.
+
+#### CNAME
+
+* CNAME is a Canonical name whihc points to another domain name.
+
+#### TTL 
+
+* TTL is Time To Live. (in Seconds)
+
+* Caches the result for n seconds.
+
+#### Subnets 
+
+**Subnetting** → Dividing a Large Network into smaller networks.
+
+
+#### CIDR
 
 #### Request Path of the service calls
 
-* Domain → DNS → IP
+* **Domain → DNS → IP**
   google.com → 142.250.72.14
 
-* IP → Routing table → Subnet
+* **IP → Routing table → Subnet**
   172.31.64.0/20 → direct
   default → via 172.31.64.1
 
-* Subnet → Firewall/Security Group
+* **Subnet → Firewall/Security Group**
     **Subnet**  → Defines who is directly reachable
     **Firewall Layers**
     * Host firewall	→ iptables / nftables
     * Cloud firewall →	AWS Security Group(Stateful)
     * Network firewall →	NACL(Stateless)
   
-* Firewall → Port → Process
+* **Firewall → Port → Process**
     * **Port** → Logical endpoint on a machine
       * 80 → HTTP 
       * 443 → HTTPS
@@ -93,7 +119,7 @@ Every networking problem boils down to these 5 questions:
     * nginx → port 80
     * postgres → port 5432
 
-* Process → Container → Pod → Service → Ingress
+* **Process → Container → Pod → Service → Ingress**
     * This is Kubernetes-specific abstraction
       * **Container** → Isolated runtime for a process.
       * **Pod** → Smallest deployable unit and it contains one or more containers.
@@ -144,23 +170,6 @@ Gateway
    ↓
 Destination IP
 
-
-
-#### CNAME
-
-* CName is a Canonical name whihc points to another domain name.
-
-#### TTL 
-
-* TTL is Time To Live. (in Seconds)
-
-* Caches the result for n seconds.
-
-#### Ports & Protocols
-
-* Route the tarffic to the right application
-
-
 ##### Commands 
 
 * `ip a`
@@ -190,4 +199,23 @@ Destination IP
     * `NOERROR` → Success
     * `NXDOMAIN` → Domain doesn’t exist
     * `SERVFAIL` → DNS server failure
+
+* `resolvectl` → Controls DNS resolution
+  * `sudo resolvectl dns ens5 8.8.8.8` → Sets the DNS for the interface.
+  * `resolvectl status` → Shows which DNS servers are configured.
+  * `sudo resolvectl revert ens5` → Revert back to the original DNS.
+
+* `ss -tuln` → Shows listening ports and connections.
+  * `-t` → TCP
+  * `-u` → UDP
+  * `-l` → Listening
+  * `-n` → Numeric
+
+* `traceroute url`
+  * `traceroute google.com`
+  * It is a network diagnostic tool that maps the path packets take from your computer to a destination. 
+  
+* `netstat -tuln` → legacy version of `ss`
+
+* `lsof -i :80` → To check which process is using port 80.
 
