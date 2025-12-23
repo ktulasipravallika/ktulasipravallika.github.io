@@ -1,3 +1,72 @@
+## Networking
+
+Real-world analogy
+
+* Your house → computer/server
+* Your home address → IP address
+* Your name → domain name
+* Phone number extensions → ports
+* Post office → router
+* Security guard → firewall
+
+**Networking** is "How computers find each other and exchange data"
+
+**What networking answers?**
+
+Every networking problem boils down to these 5 questions:
+
+* Who are you talking to? → IP / DNS
+* Which application? → Port
+* Can you reach it? → Routing
+* Are you allowed? → Firewall
+* Who translates addresses? → NAT
+
+#### IP Address
+
+* **IP address** is machine identity.  
+* An IP address uniquely identifies a machine on a network
+* Example : 142.250.72.14
+* **IPV4 :**
+  * Format: x.x.x.x
+  * Each x = 0–255
+  * Example: 10.0.0.5
+* **Pulic Vs Private**
+  * **Private IPs** → Used in home, offices and Cloud VPC. These cannot be accessed directly from the internet.
+    Examples:
+      * 10.x.x.x
+      * 172.16.x.x - 172.31.x.x
+      * 192.168.x.x 
+  * **Public IPs** → Globally reachable and is assigned by ISP (Internet Service Provider)
+
+#### DNS 
+
+* **DNS** is name → IP mapping. 
+* DNS translates human-friendly domain names to machine IPs (IP Addresses).
+* Example: google.com → 142.250.x.x
+* Order of events:
+  * Browser asks OS: “Do we already know this IP?”
+  * OS asks DNS server
+  * DNS replies with IP
+  * Browser connects to that IP on port 443.
+  * Your system gets DNS from:
+  *   ISP (home network)
+  *   Cloud VPC settings
+  *   /etc/resolv.conf
+
+#### PORTS
+
+* IP Adrress identifies the machine, but one machine can run many applications like Web server, SSH, Database, Monitoring Agent.
+* A port is a number that identifies a specific application running on a machine.
+* Ports defines which application the traffic should reach.
+* Example : 192.168.1.10:80
+  * HTTP → 80
+  * HTTPS → 443
+  * SSH → 22
+  * DNS → 53
+  * FTP → 21
+  * MySQL → 3306
+  * Postgres → 5432
+
 
 #### Request Path of the service calls
 
@@ -76,21 +145,6 @@ Gateway
 Destination IP
 
 
-#### IP Address
-
-* **IP address** is machine identity.
-  
-* An IP address uniquely identifies a machine on a network
-
-* Example : 142.250.72.14
-
-#### DNS 
-
-* **DNS** is name → IP mapping.
-  
-* DNS translates human-friendly names to machine IPs.
-
-* Example: google.com → 142.250.x.x
 
 #### CNAME
 
