@@ -335,6 +335,12 @@ DNS : Domain Name System
   * `journalctl -xe`   {`-x` → Extra Expalantion, `-e` → Jump to recent logs}
   * `journalctl -u ssh -xe`
   * `journalctl --since "1 hour ago"`
+
+* `resolvectl` → controls DNS resolution
+  * `sudo resolvectl dns ens5 8.8.8.8`
+  * `resolvectl status`
+  * `sudo resolvectl revert ens5`
+
   
 #### Files, Directories and Logs
 
