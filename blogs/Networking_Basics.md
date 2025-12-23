@@ -134,6 +134,9 @@ Every networking problem boils down to these 5 questions:
         * HTTP entry point
         * Routes by hostname/path
 
+#### TCP Handshake
+
+
 #### Linux + Network view
 
 Application → DNS Lookup (Name → IP) → Routing (ip route) → Gateway → Destination IP
@@ -173,6 +176,54 @@ Routing (ip route)
 Gateway
    ↓
 Destination IP
+
+## OSI Model
+
+When an application connects to a service, it first resolves the domain using **DNS**, then establishes a TCP connection via the **three-way handshake**, and only then sends request through the layers as below.
+
+* DNS Resolution
+ * DNS resolution is the process of converting a domain name into an IP address.
+   
+* TCP Handshake
+ * TCP handshake is how two machines establish a reliable connection before data transfer.
+    * Client → `SYN`
+    * Server → `SYN-ACK`
+    * Client → `ACK`
+      
+* Seven Layers of Data.
+ * Layer - 7 → Application Layer
+    * Where applications talk to the network.
+    * Example : HTTP, HTTPS, SSH, FTP.
+      
+ * Layer - 6 → Presentation Layer
+    * Encryption of data is done here.
+    * Example : HTTPS encryption (TLS)
+      
+ * Layer - 5 → Session Layer
+    * Session is created for the request.
+    * Maintains session and handles reconnecting.
+    * Example : SSH Session, HTTPS keep-alive
+      
+ * Layer - 4 → Transport Layer
+    * This is where TCP vs UDP lives.
+    * TCP : Connection established (3-way handshake) → Data sent → Acknowledgements received → Retransmit if lost.
+      * Used by HTTP, HTTPS, SSH, Databases
+    * UDP : This is Fast and no guaranteed connection
+     * Used by DNS, Streaming, Monitoring
+       
+ * Layer - 3 → Networking Layer
+    * This handles IP addressing and routing between networks.
+    * Assigns IP addresses and Routes packets and Handles subnets.
+      
+ * Layer - 2 → Data Link Layer
+    * MAC address
+    * ARP
+     
+ * Layer - 1 → Physical Layer →
+    * Data is converted to electronic signals.
+    * Cables, WiFi and Ethernet.
+  
+
 
 ##### Commands 
 
