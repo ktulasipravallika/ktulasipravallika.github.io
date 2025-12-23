@@ -25,7 +25,9 @@ Every networking problem boils down to these 5 questions:
 * An IP address uniquely identifies a machine on a network
 * Example : 142.250.72.14
 * **IPV4 :**
-  * Format: x.x.x.x
+  * Format:
+      `x.x.x.x` → Each `x` varies from `0` to `255` and is 1 byte` or `8 bits`.
+  * IP Address is 4 Bytes or (4 * 8) 32 bits.
   * Each x = 0–255
   * Example: 10.0.0.5
 * **Pulic Vs Private**
@@ -90,7 +92,9 @@ Every networking problem boils down to these 5 questions:
 #### Subnets 
 
 **Subnetting** → Dividing a Large Network into smaller networks.
-
+ * `x.x.x.x/8` (8 bits common out of 32) → Class A IP Addresses → 256 * 256 * 256 IP Addresses
+ * `x.x.x.x/16` (16 bits common out of 32) → Class B IP Addresses → 256 * 256 IP Addresses
+ * `x.x.x.x/24` (24 bits common out of 32) → Class C IP Addresses → 256 IP Addresses.
 
 #### CIDR
 
