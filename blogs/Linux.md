@@ -336,10 +336,10 @@ DNS : Domain Name System
   * `journalctl -u ssh -xe`
   * `journalctl --since "1 hour ago"`
 
-* `resolvectl` → controls DNS resolution
-  * `sudo resolvectl dns ens5 8.8.8.8`
-  * `resolvectl status`
-  * `sudo resolvectl revert ens5`
+* `resolvectl` → Controls DNS resolution
+  * `sudo resolvectl dns ens5 8.8.8.8` → Sets the DNS for the interface.
+  * `resolvectl status` → Shows which DNS servers are configured.
+  * `sudo resolvectl revert ens5` → Revert back to the original DNS.
 
   
 #### Files, Directories and Logs
