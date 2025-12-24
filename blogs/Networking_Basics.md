@@ -23,20 +23,27 @@ Every networking problem boils down to these 5 questions:
 
 * **IP address** is machine identity.  
 * An IP address uniquely identifies a machine on a network
-* Example : 142.250.72.14
+ * Example : 142.250.72.14
+
 * **IPV4 :**
   * Format:
       `x.x.x.x` → Each `x` varies from `0` to `255` and is 1 byte` or `8 bits`.
   * IP Address is 4 Bytes or (4 * 8) 32 bits.
   * Each x = 0–255
-  * Example: 10.0.0.5
+   * Example: 10.0.0.5
+
 * **Pulic Vs Private**
-  * **Private IPs** → Used in home, offices and Cloud VPC. These cannot be accessed directly from the internet.
-    Examples:
+
+  * **Private IPs**
+    * Used in home, offices and Cloud VPC. These cannot be accessed directly from the internet.
+    * Examples:
       * 10.x.x.x
       * 172.16.x.x - 172.31.x.x
       * 192.168.x.x 
-  * **Public IPs** → Globally reachable and is assigned by ISP (Internet Service Provider)
+
+   * **Public IPs**
+    * Globally reachable and is assigned by ISP. (Internet Service Provider)
+    * Globally Unique and used to communicate over the internet.
 
 #### DNS 
 
@@ -44,10 +51,7 @@ Every networking problem boils down to these 5 questions:
 * DNS translates human-friendly domain names to machine IPs (IP Addresses).
 * Example: google.com → 142.250.x.x
 * Order of events:
-  * Browser asks OS: “Do we already know this IP?”
-  * OS asks DNS server
-  * DNS replies with IP
-  * Browser connects to that IP on port 443.
+  * Browser asks OS: “Do we already know this IP?” → OS asks DNS server → DNS replies with IP → Browser connects to that IP.
   * Your system gets DNS from:
   *   ISP (home network)
   *   Cloud VPC settings
@@ -58,7 +62,8 @@ Every networking problem boils down to these 5 questions:
 * IP Adrress identifies the machine, but one machine can run many applications like Web server, SSH, Database, Monitoring Agent.
 * A port is a number that identifies a specific application running on a machine.
 * Ports defines which application the traffic should reach.
-* Example : 192.168.1.10:80
+* Port Range → 0 - 65535
+* Example : 192.168.1.10:**80**
   * HTTP → 80
   * HTTPS → 443
   * SSH → 22
@@ -223,8 +228,6 @@ When an application connects to a service, it first resolves the domain using **
     * Data is converted to electronic signals.
     * Cables, WiFi and Ethernet.
   
-
-
 ##### Commands 
 
 * `ip a`
@@ -234,7 +237,10 @@ When an application connects to a service, it first resolves the domain using **
   * This shows where the packets are sent.
   * The most specific route wins, local subnets bypass gateways, and the default route forwards unknown traffic to the router.
      
-* `hostname -I` → Shows the IP Addresses assigned to the machine.
+* `hostname -I`
+  * Shows the IP Addresses assigned to the machine.
+  * `hostname`
+  * `hostname -i`
 
 * `nslookup` → Queries DNS servers to resolve domain names to IP addresses(and vice versa).
   
