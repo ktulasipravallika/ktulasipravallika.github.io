@@ -19,6 +19,18 @@ Every networking problem boils down to these 5 questions:
 * Are you allowed? → Firewall
 * Who translates addresses? → NAT
 
+#### DNS 
+
+* **DNS** is name → IP mapping. 
+* DNS translates human-friendly domain names to machine IPs (IP Addresses).
+* Example: google.com → 142.250.x.x
+* Order of events:
+  * Browser asks OS: “Do we already know this IP?” → OS asks DNS server → DNS replies with IP → Browser connects to that IP.
+  * Your system gets DNS from:
+  *   ISP (home network)
+  *   Cloud VPC settings
+  *   /etc/resolv.conf
+
 #### IP Address
 
 * **IP address** is machine identity.  
@@ -45,18 +57,6 @@ Every networking problem boils down to these 5 questions:
     * Globally reachable and is assigned by ISP. (Internet Service Provider)
     * Globally Unique and used to communicate over the internet.
 
-#### DNS 
-
-* **DNS** is name → IP mapping. 
-* DNS translates human-friendly domain names to machine IPs (IP Addresses).
-* Example: google.com → 142.250.x.x
-* Order of events:
-  * Browser asks OS: “Do we already know this IP?” → OS asks DNS server → DNS replies with IP → Browser connects to that IP.
-  * Your system gets DNS from:
-  *   ISP (home network)
-  *   Cloud VPC settings
-  *   /etc/resolv.conf
-
 #### PORTS
 
 * IP Adrress identifies the machine, but one machine can run many applications like Web server, SSH, Database, Monitoring Agent.
@@ -74,6 +74,8 @@ Every networking problem boils down to these 5 questions:
 
 #### PROTOCOLS
 
+A **protocol** is a set of rules that define how data is sent and received between systems. 
+
 **TCP**
  * Transmission Control Protocol
  * Reliable and Connection Oriented Protocol that guarantees delivery and ordering of packets.
@@ -82,7 +84,7 @@ Every networking problem boils down to these 5 questions:
 **UDP**
  * User Datagram Protocol
  * Connectionless protocol prioritizes speed and low latency.
- * Example : DNS, Video Streaming, Online Gaming, VoIP.
+ * Example : DNS, DHCP, NTP, Video Streaming, Online Gaming, VoIP.
 
 #### CNAME
 
@@ -96,13 +98,57 @@ Every networking problem boils down to these 5 questions:
 
 #### Subnets 
 
-**Subnetting** → Dividing a Large Network into smaller networks.
- * `x.x.x.x/8` (8 bits common out of 32) → Class A IP Addresses → 256 * 256 * 256 IP Addresses
- * `x.x.x.x/16` (16 bits common out of 32) → Class B IP Addresses → 256 * 256 IP Addresses
- * `x.x.x.x/24` (24 bits common out of 32) → Class C IP Addresses → 256 IP Addresses.
+* A subnet is a group of IP addresses that belong to the same network.
+* Machines in same subnet can communicate directly.
+* **Subnetting** → Dividing a Large Network into smaller networks.
+* **CIDR** (Classless Inter-Domain Routing)
+* It is a way to represent IP address ranges using a prefix length like /24.
+  * `x.x.x.x/8` (8 bits common out of 32) → Class A IP Addresses → 256 * 256 * 256 IP Addresses
+  * `x.x.x.x/16` (16 bits common out of 32) → Class B IP Addresses → 256 * 256 IP Addresses
+  * `x.x.x.x/24` (24 bits common out of 32) → Class C IP Addresses → 256 IP Addresses.
+  * **Usable IPs = TotalIPs - 2**
+       * 1 IP is fixed for Network IP.
+       * Other is fixed for Broadcast IP: 192.168.1.255
+    * Example : 192.168.1.0/24 
+       * Network IP: 192.168.1.0
+       * Broadcast IP: 192.168.1.255
 
-#### CIDR
+#### ROUTING 
 
+* Routing determines where packets go and the default gateway connects the local network to external networks.
+* The system sends packets to a gateway.
+* Gateway forwards packets to the destination.
+
+#### GATEWAY
+
+* A gateway is a device (usually a router) that connects your network to other networks.
+
+#### FIREWALL:
+
+* A firewall is a security system that allows or blocks network traffic based on rules.
+* Rules are usually based on IP address, Port, Protocol (TCP/UDP), Direction (inbound/outbound)
+
+* **Stateful firewall**
+ * Remembers connections and allows return traffic automatically
+ * Response traffic is automatically allowed.
+ * Security Groups (AWS) are stateful.
+
+**Stateless firewall**
+ * Does NOT remember connections
+ * You must allow both directions explicitly
+ * NACLs (AWS) are stateless.
+
+**Firewall Layers**
+    * Host firewall	→ iptables / nftables
+    * Cloud firewall →	AWS Security Group(Stateful)
+    * Network firewall →	NACL(Stateless)
+
+#### ICMP — Internet Control Message Protocol
+
+* **ICMP** is a protocol used to send network control and error messages.
+* It is used to check connectivity and report problems.
+* ICMP fits in Network Layer.
+  
 #### Request Path of the service calls
 
 * **Domain → DNS → IP**
@@ -113,17 +159,8 @@ Every networking problem boils down to these 5 questions:
   default → via 172.31.64.1
 
 * **Subnet → Firewall/Security Group**
-    **Subnet**  → Defines who is directly reachable
-    **Firewall Layers**
-    * Host firewall	→ iptables / nftables
-    * Cloud firewall →	AWS Security Group(Stateful)
-    * Network firewall →	NACL(Stateless)
-  
+    
 * **Firewall → Port → Process**
-    * **Port** → Logical endpoint on a machine
-      * 80 → HTTP 
-      * 443 → HTTPS
-
   * **Process** → Program bound to the port
     * nginx → port 80
     * postgres → port 5432
@@ -138,9 +175,6 @@ Every networking problem boils down to these 5 questions:
       * **Ingress**
         * HTTP entry point
         * Routes by hostname/path
-
-#### TCP Handshake
-
 
 #### Linux + Network view
 
@@ -186,16 +220,16 @@ Destination IP
 
 When an application connects to a service, it first resolves the domain using **DNS**, then establishes a TCP connection via the **three-way handshake**, and only then sends request through the layers as below.
 
-* DNS Resolution
+* **DNS Resolution**
  * DNS resolution is the process of converting a domain name into an IP address.
    
-* TCP Handshake
+* **TCP Handshake**
  * TCP handshake is how two machines establish a reliable connection before data transfer.
     * Client → `SYN`
     * Server → `SYN-ACK`
     * Client → `ACK`
       
-* Seven Layers of Data.
+* **Seven Layers of Data.**
  * Layer - 7 → Application Layer
     * Where applications talk to the network.
     * Example : HTTP, HTTPS, SSH, FTP.
@@ -230,53 +264,85 @@ When an application connects to a service, it first resolves the domain using **
   
 ##### Commands 
 
-* `ip a`
-  * Gives the IP Address Information.
-   
-* `ip route`
-  * This shows where the packets are sent.
-  * The most specific route wins, local subnets bypass gateways, and the default route forwards unknown traffic to the router.
-     
-* `hostname -I`
-  * Shows the IP Addresses assigned to the machine.
-  * `hostname`
-  * `hostname -i`
+**Network Layer**
 
-* `nslookup` → Queries DNS servers to resolve domain names to IP addresses(and vice versa).
+   * `ip a` → { `a` is address }
+      * Gives the IP Address Information.
+
+   * `hostname -I` → { `-I` is IPAddress }
+      * Shows the IP Addresses assigned to the machine.
+      * `hostname`
+      * `hostname -i`
   
-  * `nslookup amazon.com`
-  * `nslookup 8.8.8.8`
+   * `ip route` → { `route` is path }
+      * This shows where the packets are sent, Default gateway and Local subnets.
+      * The most specific route wins, local subnets bypass gateways, and the default route forwards unknown traffic to the router.
+
+   * `ping ` → Checks IP Connectivity
+      * Tests reachability
+      * Uses ICMP, not TCP/UDP
     
-* `dig` → Powerful DNS query tool with detailed output.
+   * `traceroute url` → { trace = trace the path }
+      * `traceroute google.com`
+      * It is a network diagnostic tool that maps the path packets take from your computer to a destination. 
 
-  * `dig google.com`  
-  * Records:
-    * `A record` maps domain name to IPV4 Address
-    * `AAAA record` maps domain name to IPV6 Address.
-    * `CNAME` maps to alias to another domain.
-    * `MX` maps to mail servers
-    * `NS` maps to Name Servers     
-  * Status :
-    * `NOERROR` → Success
-    * `NXDOMAIN` → Domain doesn’t exist
-    * `SERVFAIL` → DNS server failure
+   * `ipcalc 192.168.1.0/24`
+      * This helps to understand CIDR ranges and usable IPs.
 
-* `resolvectl` → Controls DNS resolution
-  * `sudo resolvectl dns ens5 8.8.8.8` → Sets the DNS for the interface.
-  * `resolvectl status` → Shows which DNS servers are configured.
-  * `sudo resolvectl revert ens5` → Revert back to the original DNS.
+   * `iptables -L`
+      * `iptables` Controls packet filtering on Linux.
+      * Shows the firewall Rules.
+        
+   * `ufw status` → { user-friendly wrapper } 
+      * Shows firewall status
+      * Simpler than iptables
 
-* `ss -tuln` → Shows listening ports and connections.
-  * `-t` → TCP
-  * `-u` → UDP
-  * `-l` → Listening
-  * `-n` → Numeric
+**Transport Layer**
 
-* `traceroute url`
-  * `traceroute google.com`
-  * It is a network diagnostic tool that maps the path packets take from your computer to a destination. 
+   * `ss -tuln` → { `ss` → sockets `-t` → TCP, `-u` → UDP, `-l` → Listening, `-n` → Numeric }
+      * Shows listening ports and connections.
+
+   * `netstat -tuln` → legacy version of `ss`
+
+   * `lsof -i :80` → { List the open files (ports are files here) }
+      *  To check which process is using port 80.
+    
+   * `nc` → { netcat }
+      * `nc google.com 443` 
+      * Netcat tests whether a port is reachable.
+      * `nc -vz google.com` → { `-v` → Verbose, `-z` → Zero-I/O mode ( Do NOT send any data — just check if the port is open ) }
+    
+**Application Layer**
+ 
+   * `curl`
+      * `curl google.com` 
+      * Sends HTTP/HTTPS requests and Tests Applications Level connectivity.
   
-* `netstat -tuln` → legacy version of `ss`
+   * `wget
+      * Used mainly for downloading files. 
+  
+   * `ssh ipaddress`
+      * Secure remote login
+      * Uses TCP port 22
 
-* `lsof -i :80` → To check which process is using port 80.
+   * `nslookup` → Queries DNS servers to resolve domain names to IP addresses(and vice versa)
+      * `nslookup amazon.com`
+      * `nslookup 8.8.8.8`
+    
+   * `dig` → Powerful DNS query tool with detailed output.
+      * `dig google.com`  
+      * Records:
+        * `A record` maps domain name to IPV4 Address
+        * `AAAA record` maps domain name to IPV6 Address.
+        * `CNAME` maps to alias to another domain.
+        * `MX` maps to mail servers
+        * `NS` maps to Name Servers     
+      * Status :
+        * `NOERROR` → Success
+        * `NXDOMAIN` → Domain doesn’t exist
+        * `SERVFAIL` → DNS server failure
 
+   * `resolvectl` → Manages DNS resolver on systemd systems.
+        * `sudo resolvectl dns ens5 8.8.8.8` → Sets the DNS for the interface.
+        * `resolvectl status` → Shows which DNS servers are configured.
+        * `sudo resolvectl revert ens5` → Revert back to the original DNS.
