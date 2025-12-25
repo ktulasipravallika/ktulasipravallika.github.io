@@ -1,26 +1,26 @@
-#### Metrics
+### Metrics
 
   * Metrics represents what is happening.
   * These trigger the alerts
   * Example: CPU %, Latency, Error Rate
 
-#### Dashboards
+### Dashboards
 
   * Dashboards gives visibility
      
-#### Logs
+### Logs
 
   * Logs represents why did it happen.
   * Example: Applincation Logs, Error Logs
     
-#### Traces
+### Traces
 
   * Traces represent where did it happen.
   * Example: Request Flow Across services
 
 **Note: Metrics tell me something is wrong, logs tell me why, and traces tell me where.**
 
-##### Metrics:
+#### Metrics:
 
 **Latency:**
   * How long requests take
