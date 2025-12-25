@@ -77,35 +77,29 @@ Kernel space runs privileged code, user space runs applications, and system call
 ### File Permissions
 
 * Permissions are applied to three categories:
-  
    * Owner (User)
    * Group 
    * Others
      
 * Permissions
-  
    * `r` means read
    * `w` means write
    * `x` means execute
 
 **Note** :
-
-* Execute on a directory → ability to enter it.
-* Read on a directory → ability to list files.
+  * Execute on a directory → ability to enter it.
+  * Read on a directory → ability to list files.
 
 ### Users
 
 **Linux user** :
-
   * A Linux user is an account that represents a person or service interacting with the system, identified by a user ID (UID) and used to control permissions and access.
 
 **Root User** : 
-
   * The root user is the superuser with unrestricted access to the entire system.
   * UID is 0.
 
 **Sudo** :
-
   * `sudo` allows a regular users to execute specific commands with root (superuser) privileges, based on permissions defined in the system.
   * sudo actions are logged in `/var/log/auth.log`.
   * Uses:
@@ -119,15 +113,12 @@ Kernel space runs privileged code, user space runs applications, and system call
 ### Groups
 
 **Linux Group** :
-
   * A Linux Group is a collection of users used to manage permissions and access to files and resources collectively.
 
 **Primary Group:**
-
   * A primary group is the main group associated with a user and is used by default when the user creates files.
 
 **Secondary Group:**
-
   * Secondary (supplementary) groups are additional groups that grant extra permissions to the user.
     
 ### Process
@@ -140,24 +131,20 @@ Kernel space runs privileged code, user space runs applications, and system call
     * mysql
     * python file.py
       
-* **Parent Process** :
-  
+* **Parent Process** : 
   * A parent process is the provcess that creates another process using fork().
     
-* **Child Process** :
-  
+* **Child Process** :  
   * The newly created process after fork() is child process.
   
 **Example** : When a shell runs ls, the shell is the _PARENT_ and ls runs as the _CHILD_ process.
 
-* **Orphan Process** :
-  
+* **Orphan Process** :  
   * If the parent process terminates, the child process become the _ORPHAN_ process.
   * This process is adopted by the init/systemd process(PID 1).
   * This child process(Orphan process) still keeps running (DO NOT automatically terminate)
 
 * **Zombie Process** :
-  
   * A zombie process is a process that has finished execution, but still has an entry in the process table.
   * A child process exits, but the parent process doesnot call wait().
   * At this stage kernel keeps minimal info about this process like PID and exit code.
@@ -190,50 +177,40 @@ Program is a file on disk.
 ### Memory Management
 
 * **RAM** : Random Accesss Memory
-  
   *  RAM is volatile memory that holds running programs, processes, and data required by the CPU for fast access.
   *  Its contents are lost when the system is powered off.
   *  RAM is System memory.
 
 **Swap Memory**
-
   *  Swap is disk space used to extend RAM and prevent memory exhaustion when physical memory is full.
   *  When both RAM and Swap are fully used, the Linux kernel invokes the OOM Killer (Out-Of-Memory Killer), which forcefully terminates one or more processes to free memory.
 
 ### CPU & Load
 
-**CPU Usage**:  
-  
+**CPU Usage**:    
   * CPU Usage is the number of processes actively executing/running on the CPU.
     
 **CPU Load** 
-
   * CPU load indicates the number of processes that are either running on the CPU or waiting to run.
 
 **Load Average** 
-
   * Load average is average number of proceses that are running or waiting for CPU over a period of time (1 Minute, 5 Minutes, 15 Minutes).
 
 ### Files, Directories and Logs
 
 **Files** : 
-
   * A file stores data, such as text, scripts, or binaries.
     
 **Directories** :
-
   * A directory is a container that holds files and other directories.
 
 **Paths** :
-
-  * **Absolute Path** → /home/ubuntu/projects (starts from /)
-    
+  * **Absolute Path** → /home/ubuntu/projects (starts from /)   
   * **Relative Path** → projects  # relative (from current directory)               
 
 ### Netwroking Basics
 
-DNS : Domain Name System 
-
+**DNS : Domain Name System**
 * Translate the human readable domain names into IP addresses so systems can locate each other on a network.
 
 ## Commands
@@ -261,7 +238,7 @@ DNS : Domain Name System
   
 * `sudo -l` →
 
-* `whoami →
+* `whoami` →
 
 #### Process Commands
 
@@ -345,7 +322,6 @@ DNS : Domain Name System
 #### Files, Directories and Logs
 
 * `ls` → Lists the files
-  
   * `ls -l` → Long Format.
   * `ls -a` → Includes hidden files/folders like `.` and `..`
   * `ls -A` → Includes hidden files/folders except `.` and `..`
@@ -363,8 +339,7 @@ DNS : Domain Name System
   
 * `..` → parent directory
 
-* `echo` → Prints text or variables to stdout.
-  
+* `echo` → Prints text or variables to stdout. 
   * echo "hello" → Prints word "hello"
   * echo $HOME → Prints the value of HOME.
   * echo "log entry">>app.log → Redirects the "log entry" to app.log file.
