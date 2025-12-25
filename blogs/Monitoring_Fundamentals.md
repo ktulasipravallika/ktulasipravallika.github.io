@@ -3,6 +3,21 @@
   * Metrics represents what is happening.
   * These trigger the alerts
   * Example: CPU %, Latency, Error Rate
+  * **Latency:**
+      * How long requests take
+      * Example: p95 latency >2s
+        
+  * **Traffic:**
+      * How much load system gets
+      * RPS drops suddenly
+        
+  * **Errors:**
+      * Failed requests
+      * 5xx error rate > 2%
+        
+  * **Saturation:**
+      * Resource exhaustion
+      * CPU > 90%, disk full
 
 ### Dashboards
 
@@ -20,23 +35,6 @@
 
 **Note: Metrics tell me something is wrong, logs tell me why, and traces tell me where.**
 
-#### Metrics:
-
-**Latency:**
-  * How long requests take
-  * Example: p95 latency >2s
-    
-**Traffic:**
-  * How much load system gets
-  * RPS drops suddenly
-    
-**Errors:**
-  * Failed requests
-  * 5xx error rate > 2%
-    
-**Saturation:**
-  * Resource exhaustion
-  * CPU > 90%, disk full
 
 #### Alerting
 **Threshold** 
