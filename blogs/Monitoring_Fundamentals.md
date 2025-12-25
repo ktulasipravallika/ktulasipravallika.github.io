@@ -1,6 +1,6 @@
 ### Metrics
 
-  * Metrics represents what is happening.
+  * Metrics represents what is happening? and How healthy is the system right now and over time?
   * These trigger the alerts.
   * Metrics → Alarms → SNS → On-call
   * Example: CPU %, Latency, Error Rate
