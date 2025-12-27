@@ -131,7 +131,30 @@
     
 **Log Insights**:
   * Logs Insights is a query engine for CloudWatch logs.
-  * Used for faster logs search, Filter errors, Count occurrences, Correlate with alarms
+  * Used for faster logs search, Filter errors, Count occurrences, Correlate with alarms.
+
+
+##### Customer impact (usually already hurting users)
+
+* PortAllocationErrorCount (connection drops)
+
+* High 5xx / timeout rate
+
+* UnhealthyRoutingFlowCount / unhealthy target ratio high
+
+* HealthyHostCount = 0
+
+##### Early warning (trending toward pain)
+
+* ActiveFlowCount/HealthyHostCount rising
+
+* NewFlowCount/HealthyHostCount rising
+
+* CPU/memory trending up
+
+* ProcessedBytes approaching limit
+
+* AZ imbalance increasing
 
 
 
