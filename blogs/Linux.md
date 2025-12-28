@@ -536,5 +536,15 @@ Program is a file on disk.
 * MySQL → 3306
 * Postgres → 5432
 
+#### When something is “down/slow” on a Linux host:
+
+* Is it up? → uptime / who
+* CPU pressure? → top / vmstat 1
+* Memory pressure? → free -h / look for swap, OOM
+* Disk full / I/O? → df -h / iostat / dmesg
+* Service running? → systemctl status <svc>
+* Logs show why? → journalctl -u <svc> -n 200 --no-pager
+* Is port open? → ss -lntp / curl -v localhost:<port>
+
 
 
