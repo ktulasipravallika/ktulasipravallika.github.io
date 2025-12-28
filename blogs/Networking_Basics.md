@@ -346,3 +346,30 @@ When an application connects to a service, it first resolves the domain using **
         * `sudo resolvectl dns ens5 8.8.8.8` → Sets the DNS for the interface.
         * `resolvectl status` → Shows which DNS servers are configured.
         * `sudo resolvectl revert ens5` → Revert back to the original DNS.
+
+##### Status Codes
+
+**1xx**
+  * `100` → Continue
+  * `102` → Processing
+**2xx**
+ * 200 → OK
+ * 201 → Created
+ * 202 → Accepted
+ * 203 → Non-Authoritative Information
+ * 204 → No Content
+**3xx**
+ * 300 → Multiple Choices
+ * 302 → Found
+ * 304 → Not Modified
+**4xx**
+ * 400 → Bad Request
+ * 401 → Unauthorized
+ * 403 → Forbidden
+ * 404 → Not Found 
+**5xx**
+ * 500 → Internal Server Error
+ * 501 → Not Implemented
+ * 502 → Bad Gateway
+ * 503 → Service Unavailable
+
