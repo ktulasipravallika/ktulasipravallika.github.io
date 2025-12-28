@@ -47,7 +47,41 @@
 
 ## Docker Network
 
+   * A container has its own network namespace (its own “mini machine” networking).
+   * **Bridge Network:**
+      * This is the default network.
+      * Containers get a private IP on a virtual bridge.
+      * Outboud internet works via NAT.
+      * Inbound host/extenal needs -p.
+      * Commands :
+         * `docker network ls` → Lists all the networks.
+         * `docker network inspect bridge` → Detailed information of the network.
+        
+   * **User Defined Bridge Network**
+      * Built-in DNS by container name, better isolation, easier networking than default bridge.
+      * Commands:
+         * `docker network create appnet` → Creates a new network with name appnet.
+         * `docker network connect network_name container_name` → Connects the container to the network dynamically.
+     
+   * **Host Network**
+      * Container shares the host network stack.
+      * No NAT, no separate container IP.
+      * No port mapping needed.
+      * Commands:
+         * `docker run -d --name container_name --network host nginx` 
+    
+   * **None**
+      * 
+   * **Overlay Network**
+        
 ## Docker Volumes
+
+   * Container filesystems are ephemeral.
+   * So volumes/bind mounts are used for persistent data.
+   * In prod: EBS/EFS or managed DB.
+   * Avoid storing important state inside container.
+   * Commands:
+      * docker run --rm -v myvol:/data alpine sh -c 'echo hello > /data/a.txt'
 
 ## Docker Bind Mounts
 
@@ -73,11 +107,23 @@
   * `docker stop container_id` → Stops the running container.
   * `docker rm container_id` → removes the container completely.
   * `docker build -t image_name:tag` → Reads the Dockerfile, context, executes steps, produces an image.
-  * `docker run -d --name applciation1 image_name:tag` → Runs the image and creates a container. { `-d` → Detached Mode, `--name` → `Name of the container`, `-p` → Publishes the port }
-  * `docker run -d --name applciation2 image_id` → Runs the image and creates a container. { `-d` → Detached Mode, `--name` → `Name of the container`, `-p` → Publishes the port}
+  * `docker run -d -p hostPort:containerPort --name applciation1 image_name:tag` 
+     * Creates a container from the image_name:tag_name and starts it.
+     * `-d` → Detached Mode
+     * `--name` → `Name of the container`
+     * `-netowork` → Indicates the network on the container.
+     * `-e KEY=VALUE` → To set any environmental variables.
+     * `-v path` → 
+     * `-p` → Publishes the port
+        * `hostPort` → inside the container
+        * `containerPort` → If you want to reach the application from outside, you map a host port to the container port.
+     * `docker run image_id` → Can also indicate image id.
   * `docker tag image_name tag_name` → Creates an additional name (alias) for an existing image ID (no rebuild).
-  * 
-  
+  * `docker port container-name` → Gives the port information and mapping.
+  * `docker network create appnet` → Creates a new network with name appnet.
+  * `docker stats` → Gives the information of CPU, MEM Usage and Pids and other details related to containers.
+  * `docker logs container_id` → Gives the logs of the container.
+  * `docker exec -it container_id sh` → Enters the container and executes any commands as required.
   
 
 
