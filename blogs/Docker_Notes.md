@@ -111,7 +111,7 @@
      * Creates a container from the image_name:tag_name and starts it.
      * `-d` → Detached Mode
      * `--name` → `Name of the container`
-     * `-netowork` → Indicates the network on the container.
+     * `-network` → Indicates the network on the container.
      * `-e KEY=VALUE` → To set any environmental variables.
      * `-v path` → 
      * `-p` → Publishes the port
