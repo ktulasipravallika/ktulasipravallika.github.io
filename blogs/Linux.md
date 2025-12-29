@@ -272,13 +272,17 @@ Program is a file on disk.
 
 #### Disk and File Systems
 
-* `df -h`
+* `df -h` →
   
-* `du -sh /*`
+* `du -sh /*` →
   
-* `mount`
+* `mount` →
   
-* `lsblk`
+* `lsblk` →
+
+* `fdisk -l` →
+
+* `lshw` →
 
 #### Memory
 
@@ -299,11 +303,10 @@ Program is a file on disk.
 * `vmstat` →
   
 * `lsspu` →
-* 
-* `cat /proc/cpuinfo` →
-* 
-* `top` & `ps aux` → Also shows the CPU Usage.
   
+* `cat /proc/cpuinfo` →
+  
+* `top` & `ps aux` → Also shows the CPU Usage.
   * `wa` tag in top command shouws the I/O wait time.
   * `ni` tag shows indicates the priority of a process.Higher nice values mean lower priority.
 
