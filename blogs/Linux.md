@@ -287,13 +287,21 @@ Program is a file on disk.
 * `ps aux` → Shows memory usage (%MEM, RSS) per process.
   
 * `top` → Shows per-process memory usage in real time.
+  
+* `lsmem` →
+  
+* `cat /proc/meminfo` → 
 
 #### CPU & Load
 
 * `uptime` → Quick health check, shows the load averages for 1 minute, 5 minutes, 15 minutes.
 
-* `vmstat`
+* `vmstat` →
   
+* `lsspu` →
+* 
+* `cat /proc/cpuinfo` →
+* 
 * `top` & `ps aux` → Also shows the CPU Usage.
   
   * `wa` tag in top command shouws the I/O wait time.
