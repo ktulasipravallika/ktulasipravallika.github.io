@@ -93,7 +93,6 @@ A **protocol** is a set of rules that define how data is sent and received betwe
 #### TTL 
 
 * TTL is Time To Live. (in Seconds)
-
 * Caches the result for n seconds.
 
 #### Subnets 
@@ -133,7 +132,7 @@ A **protocol** is a set of rules that define how data is sent and received betwe
  * Response traffic is automatically allowed.
  * Security Groups (AWS) are stateful.
 
-**Stateless firewall**
+* **Stateless firewall**
  * Does NOT remember connections
  * You must allow both directions explicitly
  * NACLs (AWS) are stateless.
@@ -203,18 +202,6 @@ ClusterIP
    ↓ Ingress
 Routes to backend
 ```
-
-#### Linux + network view
-
-Application
-   ↓
-DNS Lookup (Name → IP)
-   ↓
-Routing (ip route)
-   ↓
-Gateway
-   ↓
-Destination IP
 
 ## OSI Model
 
