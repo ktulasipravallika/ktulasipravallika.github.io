@@ -236,9 +236,9 @@ Program is a file on disk.
   
 * `id user_name` →
   
-* `sudo -l` →
+* `sudo -l` → Fast way to confirm “do I have the rights to restart services, read logs, change firewall rules, etc.?” during troubleshooting.
 
-* `whoami` →
+* `whoami` → Prints the effective username of the current process.
 
 #### Process Commands
 
