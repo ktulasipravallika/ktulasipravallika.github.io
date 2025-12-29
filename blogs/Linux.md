@@ -455,7 +455,10 @@ Program is a file on disk.
   * `-f` → Force Deletion, No prompts are given.
 
 * `ln` → Used to create links between files
-  * `ln target_file symlink_name` 
+  * `ln target_file symlink_name`
+ 
+* `awk`
+* `sed`
     
 #### File Permissions
 
