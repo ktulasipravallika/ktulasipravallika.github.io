@@ -339,6 +339,7 @@ Program is a file on disk.
   * `ls -lh` → Human readable sizes.
   * `ls -lt` → Shows the list of files sorted by modified time (Newest first)
   * `ls -ltr` → Shows the list of files sorted by modified time in reverse order (Oldest first)
+  * `ls -lS` → Sorted by size.
   * **Output : -rw-r--r--  1 user group  1234 Jan 10 file.txt**
     * `-`	→ File Type {`-` → Regular File, `l` → Symbolic Link,`b` → Block Device(disk) , `s` → Socket, `d` → directory}
     * `rw-r--r--` →	permissions
