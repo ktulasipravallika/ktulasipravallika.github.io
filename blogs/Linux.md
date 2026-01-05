@@ -259,7 +259,7 @@ Program is a file on disk.
 * `kill`
   * `kill process_id`
      * Allows the process to clean up resources, close files and save state.
-     * Sends signal to terminate and lets process handle the teermination.
+     * Sends signal to terminate and lets process handle the termination.
      * `TREMINATE GRACEFULLY` (signal is called `SIGTERM`)
        
   * `kill -9 process_id`
@@ -371,8 +371,9 @@ Program is a file on disk.
   
 * `cd` → Change Directory
     * `cd ~` → home directory
+    * `cd` → home directory
     * `cd ..` → parent directory
-    * `cd -` → previous directory
+    * `cd -` → previous directory (toggles between the last opened directories)
     * `cd /` → root
     * cd /path || exit 1` → Try to change the directory and if it fails exit script with error.
       
@@ -389,6 +390,9 @@ Program is a file on disk.
   * `cat file_name` → Shows the contents of the file. 
   * `cat>file_name` → Creates the file and opens editor and writes content to the file.
   * `cat>>file_name` → Append content to the file.
+  * `< file` = “make stdin (0) come from this file”
+  * `> file` = “send stdout (1) to this file”
+  * `> 2> file` = “send stderr (2) to this file”
   
 * `less` → Loads the file page by page and navigation is better.
   * `load file_name`  
@@ -403,7 +407,7 @@ Program is a file on disk.
   * `head file.txt` → Dispalys the firsy 10 lines of the file.
   * `head -n 20 file.txt`  → Dispalys the first 50 lines of the file.
    
-* `tail` → To view last set of lines
+* `tail` → To view last set of 10 lines by default.
   * `tail file.txt` → Dispalys the last 10 lines of the file.
   * `tail -n 50 file.txt` → Dispalys the last 50 lines of the file.
   * `tail -f app.log` → Used to view the live logs.
