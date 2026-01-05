@@ -3,13 +3,13 @@
   * Metrics represents what is happening? and How healthy is the system right now and over time?
   * These trigger the alerts.
   * Metrics → Alarms → SNS → On-call
-  * Example: CPU %, Latency, Error Rate
+  * Example: CPU %, Memory %, Latency (p99, p95), TPS/RPS,  Error Rate, Queue Depth, DB connections
      * **Latency:**
-         * How long requests take
+         * How long requests take?
          * Example: p95 latency >2s
            
      * **Traffic:**
-         * How much load system gets
+         * How much load system gets?
          * RPS (Requests Per Second) drops suddenly.
            
      * **Errors:**
@@ -25,16 +25,37 @@
   * Dashboards are used for real-time incident monitoring and shift handover.
   * Dashboards → Visibility
   * Dashboards show: p95 latency, RPS, Error rate, Saturation.. etc metrics in a single view.
+  * A NOC-ready dashboard is layered:
+    * Layer 1: User impact (top row)
+       *  availability / success rate
+       *  p95/p99 latency
+       *  error rate
+       *  traffic volume
+    *  Layer 2: Service health
+       *  CPU, memory, restarts
+       *  thread pool / queue depth
+       *  GC time (if applicable)
+    * Layer 3: Dependencies
+       * DB latency + connections
+       * cache hit rate
+       * downstream service timeouts
+       * Kafka lag (if used)
+    * Layer 4: Infra / region/AZ breakdown
+       * region split
+       * AZ split
+       * load balancer health
+       * Key skill: Always compare healthy vs unhealthy region.
+    
 ### Logs
 
   * Logs represents why did it happen.
   * Logs → Logs Insights → Root cause
-  * Example: Applincation Logs, Error Logs
+  * Example: Applincation Logs or Error Logs showing “timeout calling DB”, “permission denied”
     
 ### Traces
 
   * Traces represent where did it happen.
-  * Example: Request Flow Across services
+  * Example: Request Flow Across services like LB → service A → service B → DB.
 
 **Note: Metrics tell me something is wrong, logs tell me why, and traces tell me where.**
 
