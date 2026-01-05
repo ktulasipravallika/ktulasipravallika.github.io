@@ -337,6 +337,8 @@ Program is a file on disk.
   * `ls -a` → Includes hidden files/folders like `.` and `..`
   * `ls -A` → Includes hidden files/folders except `.` and `..`
   * `ls -lh` → Human readable sizes.
+  * `ls -lt` → Shows the list of files sorted by modified time (Newest first)
+  * `ls -ltr` → Shows the list of files sorted by modified time in reverse order (Oldest first)
   * **Output : -rw-r--r--  1 user group  1234 Jan 10 file.txt**
     * `-`	→ File Type {`-` → Regular File, `l` → Symbolic Link,`b` → Block Device(disk) , `s` → Socket, `d` → directory}
     * `rw-r--r--` →	permissions
