@@ -305,7 +305,7 @@ When an application connects to a service, it first resolves the domain using **
       * `curl google.com` 
       * Sends HTTP/HTTPS requests and Tests Applications Level connectivity.
   
-   * `wget
+   * `wget`
       * Used mainly for downloading files. 
   
    * `ssh ipaddress`
