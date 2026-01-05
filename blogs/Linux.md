@@ -64,7 +64,7 @@ Kernel space runs privileged code, user space runs applications, and system call
    * fork() → create a process
    * exec() → run a program
 
-* When you type `ls` and press Enter:“The shell forks a process, the child execs `ls`, `ls` uses system calls to read the directory, prints output, exits, and control returns to the shell.”
+* When you type `ls` and press Enter - “The shell forks a process, the child execs `ls`, `ls` uses system calls to read the directory, prints output, exits, and control returns to the shell.”
 
 ### FileSystem and Navigation
 
