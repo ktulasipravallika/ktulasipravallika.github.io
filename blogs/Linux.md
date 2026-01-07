@@ -40,15 +40,15 @@ Kernel space runs privileged code, user space runs applications, and system call
 
 #### **User Space**
 
-* Where **applications run**.
-* Has **restricted access**.
-* Cannot directly access hardware.
-* Must request services from kernel.
-* Examples:
-   * Shell (`bash`)
-   * Commands (`ls`, `ps`, `grep`)
-   * Applications (databases, web servers).
-   * Docker, Java, Python programs.
+  * Where **applications run**.
+  * Has **restricted access**.
+  * Cannot directly access hardware.
+  * Must request services from kernel.
+  * Examples:
+     * Shell (`bash`)
+     * Commands (`ls`, `ps`, `grep`)
+     * Applications (databases, web servers).
+     * Docker, Java, Python programs.
 * `ls` command runs in user space because it is a regular user program. When it needs information (like directory contents), it makes system calls to the kernel, which then accesses the filesystem and returns the results.
 
 ### System Call
@@ -82,13 +82,14 @@ Kernel space runs privileged code, user space runs applications, and system call
    * Others
      
 * Permissions
-   * `r` means read
-   * `w` means write
-   * `x` means execute
+   * `r` means read → Represented as `4`
+   * `w` means write → Represented as `2`
+   * `x` means execute → Represented as `1`
 
 **Note** :
-  * Execute on a directory → ability to enter it.
-  * Read on a directory → ability to list files.
+  * Execute `x` on a directory provides ability to enter the directory. (`cd`)
+  * Read `r` on a directory provides ability to list files. (`ls`)
+  * To access a file inside a directory, you usually need execute `x` on every directory in the path.
 
 ### Users
 
@@ -204,10 +205,25 @@ Program is a file on disk.
 **Load Average** 
   * Load average is average number of proceses that are running or waiting for CPU over a period of time (1 Minute, 5 Minutes, 15 Minutes).
 
-### Files, Directories and Logs
+### Filesystem
 
 **Files** : 
   * A file stores data, such as text, scripts, or binaries.
+  * A file on disk is:
+      * directory entry (name → inode number)
+      * inode (metadata + pointers to actual data blocks)
+  * Multiple files can point to the same inode.
+
+**Link** :
+  * **Hard Link:**
+      * A hard link is another filename that points to the same inode (same file data).
+      * Deleting “original name” does not delete the data if another hard link exists 
+
+  * **Soft Link:**
+      * A soft link (symlink) is a special file that stores a path to another file.
+      * Has its own inode.
+      * Points by path, not inode.
+      * If target is deleted/moved, symlink becomes broken (dangling).
     
 **Directories** :
   * A directory is a container that holds files and other directories.
@@ -287,11 +303,12 @@ Program is a file on disk.
     
     * `kill -l`
        * Lists all the Signals.
-       *   
 
   * `pkill process_id`
+    
   * `echo $?` → Stores the last exit code.
-  * `trap`→ trap tells bash - When you receive a signal, run this code instead of just dying.
+    
+  * `trap` → trap tells bash - When you receive a signal, run this code instead of just dying.
 
 trap 'echo "Got SIGTERM: cleanup then exit 0"; exit 0' TERM
 
@@ -365,6 +382,7 @@ trap 'echo "Got SIGTERM: cleanup then exit 0"; exit 0' TERM
   * `ls -lt` → Shows the list of files sorted by modified time (Newest first)
   * `ls -ltr` → Shows the list of files sorted by modified time in reverse order (Oldest first)
   * `ls -lS` → Sorted by size.
+  * `ls -li` → Displays the inode of the file.
   * **Output : -rw-r--r--  1 user group  1234 Jan 10 file.txt**
     * `-`	→ File Type {`-` → Regular File, `l` → Symbolic Link,`b` → Block Device(disk) , `s` → Socket, `d` → directory}
     * `rw-r--r--` →	permissions
@@ -374,6 +392,10 @@ trap 'echo "Got SIGTERM: cleanup then exit 0"; exit 0' TERM
     * `1234` →	size (in bytes)
     * `Jan 10` →	mtime
 
+* `ln file1_name file2_name` → Creates a hard link file2_name to file1_name.
+* 
+* `ln -s file1_name file2_name` → Creates a soft link file2_name to file1_name.
+  
 * `.` → current directory
   
 * `..` → parent directory
@@ -403,7 +425,7 @@ trap 'echo "Got SIGTERM: cleanup then exit 0"; exit 0' TERM
     * `cd ..` → parent directory
     * `cd -` → previous directory (toggles between the last opened directories)
     * `cd /` → root
-    * cd /path || exit 1` → Try to change the directory and if it fails exit script with error.
+    * `cd /path || exit 1` → Try to change the directory and if it fails exit script with error.
       
 * `stat file_name` → Provides all the informations like mtime, ctime, inode, timestamps and dilesystem details of the file_name.
   * `mtime` → Content Modification Time.
