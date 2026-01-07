@@ -213,6 +213,7 @@ Program is a file on disk.
       * directory entry (name → inode number)
       * inode (metadata + pointers to actual data blocks)
   * Multiple files can point to the same inode.
+  * Every File has a Owner User (UID) and Onwer Group (GID). 
 
 **Link** :
   * **Hard Link:**
@@ -383,6 +384,7 @@ trap 'echo "Got SIGTERM: cleanup then exit 0"; exit 0' TERM
   * `ls -ltr` → Shows the list of files sorted by modified time in reverse order (Oldest first)
   * `ls -lS` → Sorted by size.
   * `ls -li` → Displays the inode of the file.
+  * `ls -ld` → Lists the directory entry itself.
   * **Output : -rw-r--r--  1 user group  1234 Jan 10 file.txt**
     * `-`	→ File Type {`-` → Regular File, `l` → Symbolic Link,`b` → Block Device(disk) , `s` → Socket, `d` → directory}
     * `rw-r--r--` →	permissions
