@@ -150,20 +150,15 @@ Kernel space runs privileged code, user space runs applications, and system call
   * A child process exits, but the parent process doesnot call wait().
   * At this stage kernel keeps minimal info about this process like PID and exit code.
   * Zombie process cannot be killed because it is alreday dead and it disappears only when parent reaps it using wait().
-    
     * **wait():**
-      
-      * **General flow** : Parent fork() →  Child → Child exits → Parent calls wait() → Kernel removes child from process table → No zombie.
-        
-      * **Zombie process** : Parent fork() → Child → Child exits → Parent never calls wait() → Zombie process remains.
-        
+      * **General flow** : Parent fork() →  Child → Child exits → Parent calls wait() → Kernel removes child from process table → No zombie.    
+      * **Zombie process** : Parent fork() → Child → Child exits → Parent never calls wait() → Zombie process remains.   
   * To fix Zombie Process :
     *  Kill or restart the parent process
     *  Parent must call wait()
     *  Reboot (last resort)
 
 ### Signals
-
   * A signal is a notification delivered to a process.
       * **SIGTERM (15):** Graceful stop request.  
       * **SIGKILL (9):** Force kill, cannot be handled
@@ -290,18 +285,15 @@ Program is a file on disk.
     * `$?` → exit code of the last command
           
 * `kill`
-  
     * `kill process_id`
        * Allows the process to clean up resources, close files and save state.
        * Sends signal to terminate and lets process handle the termination.
-       * `TREMINATE GRACEFULLY` (signal is called `SIGTERM`)
-       
+       * `TREMINATE GRACEFULLY` (signal is called `SIGTERM`)    
     * `kill -9 process_id`
        * Kernel immediately kills the process
        * No cleanup is performed.
        * Cannot be ignored
-       * `TREMINATE FORCEFULLY` (signal is called `SIGKILL`)
-    
+       * `TREMINATE FORCEFULLY` (signal is called `SIGKILL`)    
     * `kill -l`
        * Lists all the Signals.
 
@@ -521,8 +513,7 @@ trap 'echo "Got SIGTERM: cleanup then exit 0"; exit 0' TERM
     
 #### File Permissions
 
-* `chmod` → To change the permissions to owner, group, others.
-  
+* `chmod` → To change the permissions to owner, group, others.  
     * `chmod g+w` → Add write permissions to groups.
     * `chmod u-x` → Removes execute permissions to user(owner).
     * Notations for providing permissions.
@@ -538,20 +529,17 @@ trap 'echo "Got SIGTERM: cleanup then exit 0"; exit 0' TERM
 
 * `ip a` → Shows all the network interfaces & IPs.
   
-* `ip route`
-   
+* `ip route` 
   * This shows where the packets are sent.
   * The most specific route wins, local subnets bypass gateways, and the default route forwards unknown traffic to the router.
   
 * `hostname -I`
   
-* `nslookup` → Queries DNS servers to resolve domain names to IP addresses(and vice versa).
-  
+* `nslookup` → Queries DNS servers to resolve domain names to IP addresses(and vice versa).  
   * `nslookup amazon.com`
   * `nslookup 8.8.8.8`
     
 * `dig` → Powerful DNS query tool with detailed output.
-
   * `dig google.com`  
   * Records:
     * `A record` maps domain name to IPV4 Address
@@ -559,11 +547,11 @@ trap 'echo "Got SIGTERM: cleanup then exit 0"; exit 0' TERM
     * `CNAME` maps to alias to another domain.
     * `MX` maps to mail servers
     * `NS` maps to Name Servers     
-  * Status :
-    * `NOERROR` → Success
-    * `NXDOMAIN` → Domain doesn’t exist
-    * `SERVFAIL` → DNS server failure
-    
+    * Status :
+        * `NOERROR` → Success
+        * `NXDOMAIN` → Domain doesn’t exist
+        * `SERVFAIL` → DNS server failure
+        
 * `host` → Lightweight DNS query tool.
   *  `host google.com`
   *  `host 8.8.8.8`
@@ -590,6 +578,7 @@ trap 'echo "Got SIGTERM: cleanup then exit 0"; exit 0' TERM
   * `-u` → UDP
   * `-l` → Listening
   * `-n` → Numeric
+  * `p` → show process using the socket. (PID/program) (often needs sudo)
 
 * `traceroute url`
   * `traceroute google.com`
@@ -608,16 +597,4 @@ trap 'echo "Got SIGTERM: cleanup then exit 0"; exit 0' TERM
 * FTP → 21
 * MySQL → 3306
 * Postgres → 5432
-
-#### When something is “down/slow” on a Linux host:
-
-* Is it up? → uptime / who
-* CPU pressure? → top / vmstat 1
-* Memory pressure? → free -h / look for swap, OOM
-* Disk full / I/O? → df -h / iostat / dmesg
-* Service running? → systemctl status <svc>
-* Logs show why? → journalctl -u <svc> -n 200 --no-pager
-* Is port open? → ss -lntp / curl -v localhost:<port>
-
-
 
