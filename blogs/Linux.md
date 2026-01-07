@@ -159,7 +159,15 @@ Kernel space runs privileged code, user space runs applications, and system call
   * To fix Zombie Process :
     *  Kill or restart the parent process
     *  Parent must call wait()
-    *  Reboot (last resort) 
+    *  Reboot (last resort)
+
+### Signals
+
+  * A signal is a notification delivered to a process.
+      * **SIGTERM (15):** Graceful stop request.  
+      * **SIGKILL (9):** Force kill, cannot be handled
+      * **SIGINT (2):** Ctrl+C
+      * **SIGHUP (1):** Reload configuration
     
 ### Program
 
@@ -256,19 +264,36 @@ Program is a file on disk.
     * `ps -ef` → Focuses on CPU/memory usage.       {`-e` → Every Process, `-f` → Full Format}
     * `ps aux` → Emphasizes process hierarchy and parent-child relationships.      {`a` → all users `u` → user oriented format `x` → include processes without terminal}
       
+* `echo` → Prints text or variables to stdout. 
+  * `echo "hello"` → Prints word "hello"
+  * `echo $HOME` → Prints the value of HOME.
+  * `echo "log entry">>app.log` → Redirects the "log entry" to app.log file.
+    * `$$` → PID of the current shell/script
+    * `$!` → PID of the last background command
+    * `$?` → exit code of the last command
+          
 * `kill`
-  * `kill process_id`
-     * Allows the process to clean up resources, close files and save state.
-     * Sends signal to terminate and lets process handle the termination.
-     * `TREMINATE GRACEFULLY` (signal is called `SIGTERM`)
+  
+    * `kill process_id`
+       * Allows the process to clean up resources, close files and save state.
+       * Sends signal to terminate and lets process handle the termination.
+       * `TREMINATE GRACEFULLY` (signal is called `SIGTERM`)
        
-  * `kill -9 process_id`
-     * Kernel immediately kills the process
-     * No cleanup is performed.
-     * Cannot be ignored
-     * `TREMINATE FORCEFULLY` (signal is called `SIGKILL`)
+    * `kill -9 process_id`
+       * Kernel immediately kills the process
+       * No cleanup is performed.
+       * Cannot be ignored
+       * `TREMINATE FORCEFULLY` (signal is called `SIGKILL`)
+    
+    * `kill -l`
+       * Lists all the Signals.
+       *   
 
-  * `pkill process_id` 
+  * `pkill process_id`
+  * `echo $?` → Stores the last exit code.
+  * `trap`→ trap tells bash - When you receive a signal, run this code instead of just dying.
+
+trap 'echo "Got SIGTERM: cleanup then exit 0"; exit 0' TERM
 
 #### Disk and File Systems
 
@@ -357,7 +382,10 @@ Program is a file on disk.
   * echo "hello" → Prints word "hello"
   * echo $HOME → Prints the value of HOME.
   * echo "log entry">>app.log → Redirects the "log entry" to app.log file.
- 
+    * $$ = PID of the current shell/script
+    * $! = PID of the last background command
+    * $? = exit code of the last command
+   
 * `printf` → Used to print the formatted output.
   * `printf "Hello World \n"` → {`\n` → Moves cursor to next line, `\t` → Spaces/tab, `\\` → Backslash }
   * ```
