@@ -21,7 +21,7 @@ Every networking problem boils down to these 5 questions:
 
 #### DNS 
 
-* **DNS** is name → IP mapping. 
+* **DNS** is domain name → IP mapping. 
 * DNS translates human-friendly domain names to machine IPs (IP Addresses).
 * Example: google.com → 142.250.x.x
 * Order of events:
@@ -35,24 +35,22 @@ Every networking problem boils down to these 5 questions:
 
 * **IP address** is machine identity.  
 * An IP address uniquely identifies a machine on a network
- * Example : 142.250.72.14
+  * Example : 142.250.72.14
 
 * **IPV4 :**
-  * Format:
-      `x.x.x.x` → Each `x` varies from `0` to `255` and is 1 byte` or `8 bits`.
-  * IP Address is 4 Bytes or (4 * 8) 32 bits.
-  * Each x = 0–255
-   * Example: 10.0.0.5
+   * Format:
+       `x.x.x.x` → Each `x` varies from `0` to `255` and is 1 byte` or `8 bits`.
+   * IP Address is 4 Bytes or (4 * 8) 32 bits.
+   * Each x = 0–255
+       * Example: 10.0.0.5
 
 * **Pulic Vs Private**
-
   * **Private IPs**
     * Used in home, offices and Cloud VPC. These cannot be accessed directly from the internet.
     * Examples:
       * 10.x.x.x
       * 172.16.x.x - 172.31.x.x
       * 192.168.x.x 
-
    * **Public IPs**
     * Globally reachable and is assigned by ISP. (Internet Service Provider)
     * Globally Unique and used to communicate over the internet.
@@ -304,6 +302,8 @@ When an application connects to a service, it first resolves the domain using **
    * `curl`
       * `curl google.com` 
       * Sends HTTP/HTTPS requests and Tests Applications Level connectivity.
+      * `-I` → fetch headers only (no body)
+      * `-v` → verbose
   
    * `wget`
       * Used mainly for downloading files. 
