@@ -228,10 +228,14 @@ Program is a file on disk.
   * **Absolute Path** → /home/ubuntu/projects (starts from /)   
   * **Relative Path** → projects  # relative (from current directory)               
 
-### Netwroking Basics
-
 **DNS : Domain Name System**
-* Translate the human readable domain names into IP addresses so systems can locate each other on a network.
+  * Translate the human readable domain names into IP addresses so systems can locate each other on a network.
+
+### Terminal 
+  **Terminal** is a text window where you type commands.
+
+### Shell
+  **Shell** (like bash or zsh) reads your commands and runs them.
 
 ## Commands
 
@@ -279,10 +283,12 @@ Program is a file on disk.
 * `echo` → Prints text or variables to stdout. 
   * `echo "hello"` → Prints word "hello"
   * `echo $HOME` → Prints the value of HOME.
-  * `echo "log entry">>app.log` → Redirects the "log entry" to app.log file.
+  * `echo "log entry" >> app.log` → Redirects the "log entry" to app.log file.
     * `$$` → PID of the current shell/script
     * `$!` → PID of the last background command
     * `$?` → exit code of the last command
+    * `>` → Writes the data to the file. (Overwrites the existing data).
+    * `>>` → Appends the data to the file.
           
 * `kill`
     * `kill process_id`
@@ -301,9 +307,9 @@ Program is a file on disk.
     
   * `echo $?` → Stores the last exit code.
     
-  * `trap` → trap tells bash - When you receive a signal, run this code instead of just dying.
-
-trap 'echo "Got SIGTERM: cleanup then exit 0"; exit 0' TERM
+  * `trap`
+      * trap tells bash, when you receive a signal, run this code instead of just dying.
+      * trap 'echo "Got SIGTERM: cleanup then exit 0"; exit 0' TERM
 
 #### Disk and File Systems
 
@@ -367,6 +373,10 @@ trap 'echo "Got SIGTERM: cleanup then exit 0"; exit 0' TERM
   
 #### Files, Directories and Logs
 
+* `mkdir`
+  * `mkdir folder_name` → Creates a folder in the current directory.
+      * `-p` → Doesn't throw any error message if the folder already exists.
+         
 * `ls` → Lists the files
   * `ls -l` → Long Format.
   * `ls -a` → Includes hidden files/folders like `.` and `..`
@@ -432,8 +442,8 @@ trap 'echo "Got SIGTERM: cleanup then exit 0"; exit 0' TERM
   
 * `cat` → non-interactive, prints entire file.
   * `cat file_name` → Shows the contents of the file. 
-  * `cat>file_name` → Creates the file and opens editor and writes content to the file.
-  * `cat>>file_name` → Append content to the file.
+  * `>` → Creates the file and opens editor and writes content to the file.
+  * `>>` → Append content to the file.
   * `< file` = “make stdin (0) come from this file”
   * `> file` = “send stdout (1) to this file”
   * `> 2> file` = “send stderr (2) to this file”
@@ -499,7 +509,12 @@ trap 'echo "Got SIGTERM: cleanup then exit 0"; exit 0' TERM
 * `locate` → Searches for the files.
   * Searches in a cached database and is much faster but can be outdated.
   * `locate filename`
-
+* `cp` → Copies the content of the file to another file.
+  * `cp file1_name file2_name` → Copies the contents in file1_name to file2_name.
+    
+* `mv` → Renames the file.
+  * `mv file1_name file2_name` → Renames the file1_name to file2_name.
+    
 * `rm`
   * `-i` → Keeps the deletion process interactive. Rechecks before deleting.
   * `-r` → Recursive deletion, Used for deletion of files in folders.
@@ -522,7 +537,6 @@ trap 'echo "Got SIGTERM: cleanup then exit 0"; exit 0' TERM
       * `execute` → `1`
         
 * `chown` → To change the ownership of a file/directory.
-  
   * `chown user_name:group_name file_name`   
 
 ### Netwroking
