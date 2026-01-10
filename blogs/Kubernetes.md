@@ -83,21 +83,42 @@
   * `-f` → Indicates the file.
     
 * `kubectl get pod pod_name`
-  * kubectl get pod hello-pod -o wide → Adds extra columns (IP, Node, etc.)
-  * kubectl get pod hello-pod -o yaml → Prints the full object YAML
-  * kubectl get pod hello-pod -o json → Prints JSON
-  * kubectl get pods -o name → Prints only resource names like pod/hello-pod
-        { -o controls how kubectl prints the result. }
+  * `kubectl get deploy hello-deploy` → Shows details of deployment created.
+  * `kubectl get rs -l app=hello-deploy` → Shows details of replicaset created.
+  * `kubectl get pods -l app=hello-deploy -o wide` → Shows details of pod created.
+  * `-l` → Fetches the information based on label.
+  * `-o wide` → Adds extra columns (IP, Node, etc.)
+  * `-o yaml` → Prints the full object YAML
+  * `-o json` → Prints JSON
+  * `-o name` → Prints only resource names like pod/hello-pod
+  * `-o` controls how kubectl prints the result.
    
-* `kubectl describe pod pod_name`
+* `kubectl describe pod pod_name` → Describes the complete details of the pod including events.
   
-* `kubectl exec -it hello-pod -- ls`
+* `kubectl exec -it hello-pod -- ls` → To enter into a pod and execute any commands.
   
-* `kubectl port-forward pod/pod_name hostport:container_port`
+* `kubectl port-forward pod/pod_name hostport:container_port` → This is to expose the port for the pod.
+
+* `kubectl scale deploy hello-deploy --replicas=4`
+
+* `kubectl set image deploy/hello-deploy web=nginx:1.26`
+   * This updates the existing version of the image in the pods to a new version.
+   * This happens as Rolling update ==i.e upgrade with zero/low downtime.
+   * Kubernetes does NOT delete all pods at once, instead it:
+       * Creates a new ReplicaSet (new version)
+       * Gradually creates new pods from it
+       * Gradually deletes old pods from the old ReplicaSet.
+       * So traffic keeps working.
+       * Rollback happens i.e Switch back to the previous ReplicaSet (previous working version).
+         
+* `kubectl rollout status deploy/hello-deploy`
+
+* `kubectl rollout undo deploy/hello-deploy`
+
+* `kubectl delete -f file1.yaml` → Deletes the yaml file.
   
-* `kubectl delete -f file1.yaml`
-  
-* 
+
+
 
 
 
