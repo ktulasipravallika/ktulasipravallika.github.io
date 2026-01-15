@@ -1,6 +1,11 @@
 ### KUBERNETES
 
   * Kuberenetes is basically containers + networking + automation.
+  * Kubernetes is a Container Orchestration Platform.
+  * Problemes Solved by Kuberenetes:
+    * Single Host Dependency.
+    * Auto Scaling of Containers.
+    * Auto Healing of Containers.
 
 #### Image
 
@@ -17,6 +22,7 @@
         * VM = full OS + kernel inside the VM
         * Container = shares host kernel, but isolated processes
   * **Container** is the object created from the image.
+  * Containers are ephemeral i.e Short Living.
 
 #### YAML
 
@@ -40,7 +46,7 @@
 
 #### CLUSTER
 
- * A cluster is a set of machines running Kubernetes.
+ * A cluster is a set of machines/ group of Nodes running Kubernetes.
  * A Kubernetes cluster is a complete system made of:
     * **Control Plane (brain) :** It consists of the below components.
       * **etcd:** Store the desired state.
