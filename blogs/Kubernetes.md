@@ -51,7 +51,7 @@
     * **Nodes (where workloads run)**:
       * These are the “machines” where your applications actually run.
       * Each node runs:
-         * **kubelet:** Agent that starts/stops Pods
+         * **kubelet:** Agent that starts/stops Pods.
          * **containerd:** Container Runtime
          * **Networking Components**
 
@@ -68,7 +68,7 @@
 #### Deployments
 
 * A Pod by itself is fragile and if it crashes or gets deleted, it’s gone.
-* No built-in “keep 3 copies running and No rolling update control.
+* No built-in and No rolling update control.
 * A **Deployment** solves this by declaring:
    * “I want N replicas of this Pod template”.
    * Kubernetes continuously ensures N are running.
@@ -79,20 +79,28 @@
 
 #### Commands
 
+* `kubectl cluster-info`
+* `kubectl get nodes`
+* `kubectl version --client`
 * `kubectl apply -f file1.yaml`
   * `-f` → Indicates the file.
     
 * `kubectl get pod pod_name`
-  * `kubectl get deploy hello-deploy` → Shows details of deployment created.
-  * `kubectl get rs -l app=hello-deploy` → Shows details of replicaset created.
-  * `kubectl get pods -l app=hello-deploy -o wide` → Shows details of pod created.
+  
+* `kubectl get deploy hello-deploy` → Shows details of deployment created.
+  
+* `kubectl get rs -l app=hello-deploy` → Shows details of replicaset created.
+  
+* `kubectl get pods -l app=hello-deploy -o wide` → Shows details of pod created.
   * `-l` → Fetches the information based on label.
   * `-o wide` → Adds extra columns (IP, Node, etc.)
   * `-o yaml` → Prints the full object YAML
   * `-o json` → Prints JSON
   * `-o name` → Prints only resource names like pod/hello-pod
   * `-o` controls how kubectl prints the result.
-   
+
+* `kubectl get all -A`
+  
 * `kubectl describe pod pod_name` → Describes the complete details of the pod including events.
   
 * `kubectl exec -it hello-pod -- ls` → To enter into a pod and execute any commands.
