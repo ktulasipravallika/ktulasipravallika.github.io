@@ -1,4 +1,4 @@
-### KUBERNETES
+ ### KUBERNETES
 
   * Kuberenetes is basically containers + networking + automation.
   * Kubernetes is a Container Orchestration Platform.
@@ -48,22 +48,40 @@
 
  * A cluster is a set of machines/ group of Nodes running Kubernetes.
  * A Kubernetes cluster is a complete system made of:
-    * **Control Plane (brain) :** It consists of the below components.
-      * **etcd:** Store the desired state.
-      * **kube-apiserver:** Accept API requests.
-      * **Scheduler:** Decide where Pods should run.
-      * **Controllers:** Constantly fix things to match desired state.
+    * **Control Plane (brain) :**
+      * It consists of the below components.
+         * **etcd:**
+             * Store the desired state.
+             * This is a key-value storage for cluster related information.
+         * **kube-apiserver:**
+             * This is responsible for exposing the k8s to the external world.
+             * Accept API requests.
+         * **Scheduler:**
+             * Decide where Pods should run.
+             * Schedhules the pods/resources.
+         * **Controller Manager:**
+             * Constantly fix things to match desired state.
+             * For example maintains the replicas count as mentioned in yaml and keeps track of it.
+         * **Cloud Controller Manager:**
+             * This is useful for interacting  with the cloud provider and creating/maintaining the resources with cloud.
  
-    * **Nodes (where workloads run)**:
+    * **Data Plane / Nodes (where workloads run)**:
       * These are the “machines” where your applications actually run.
+      * One master can have multiple worker nodes.
       * Each node runs:
-         * **kubelet:** Agent that starts/stops Pods.
-         * **containerd:** Container Runtime
+         * **kubelet:**
+             * This is responsible for creation/running/maintaining/start/stop the pods.
+         * **Container Runtime:**
+             * `containerd`, `Dockershim`, `cri-o` are examples of the container runtime.
+             * This is responsible for running the containers in pod.
          * **Networking Components**
+             * `kube-proxy` is responsible for the load balancing, networking, managing ip addresses.
+             * It also uses iptables for networking on the machine.
 
 #### Node
 
 #### Pod
+
 * A **Pod** is a wrapper around one or more containers with shared networking and storage.
 * A Pod is the smallest unit Kubernetes runs.
 * A Pod usually contains one container (common case), but can contain multiple containers that share:
