@@ -217,5 +217,14 @@
       * Check status → `kubectl -n namespace_name get pods`
       * Inspect details + events → `kubectl -n namespace_name describe pod pod_name`
         
-
+* **CrashLoopBackOff** :
+   * It means the container starts and quickly crashes.
+   * Kubernetes tries to restart it and it keeps crashing.
+   * Kubernetes starts delaying restarts (“backoff”).
+   * This is usually caused by:
+      * App error / bad config
+      * Missing env var
+      * Wrong command/args
+      * App can’t reach dependency (DB)
+      * Permission issues
 
