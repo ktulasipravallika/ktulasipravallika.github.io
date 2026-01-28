@@ -1,4 +1,48 @@
+## Server
+ * A computer/system that provides services, data or resources to other computers (clients) over a network.
+   * Example: Web server (HTTP/HTTPS), DB server, file server, application server, cache server, DNS server.
+
+## Physical Server/Machine
+ * Consists of real hardware: CPU, RAM, disks, NICs.
+ * **Pros**:
+   * Maximum performance
+   * Predictable latency
+   * Full hardware access
+ * **Cons**:
+   * Slower Provisioning
+   * Underutilization risk
+   * Scaling is harder
+   * Hardware failures require physical work
+
+## Virtual Server/Machine
+ * Software defined machine running on shared physical hardware through a hypervisor.
+ * **Pros**:
+   * Fast Provisioning
+   * Isolation
+   * Snapshots
+   * Easy scaling/automation
+   * Better utilization.
+ * **Cons**:
+   * Overhead (small but exists)
+   * Noisy-neighbor risk
+   * Hardware access limitations
+
+## Hypervisor
+ * The virtualization layer that creates and runs VMs by managing CPU, memory, and I/O isolation.
+ * Types:
+   * **Type 1 (bare-metal):**
+     * Runs directly on hardware.
+     * Example: VMware ESXi, Hyper-V, Xen, KVM
+   * **Type 2 (hosted):**
+     * Runs on top of a host OS.
+     * VirtualBox, VMware Workstation
+ 
+## Virtualization
+ * Abstracting physical resources (compute, storage, network) so multiple isolated environments can share the same hardware.
+ * Provides better hardware utilization, fast provisioning, isolation, portability, DR, scalability.
+ 
 ## Containers
+
 
 ## Containerisation
 
