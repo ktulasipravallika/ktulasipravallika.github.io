@@ -38,18 +38,29 @@
      * VirtualBox, VMware Workstation
  
 ## Virtualization
- * Abstracting physical resources (compute, storage, network) so multiple isolated environments can share the same hardware.
- * Provides better hardware utilization, fast provisioning, isolation, portability, DR, scalability.
- 
+  * Abstracting physical resources (compute, storage, network) so multiple isolated environments can share the same hardware.
+  * Provides better hardware utilization, fast provisioning, isolation, portability, DR, scalability.
+   
 ## Containers
-
+  * Containers are very light weight and do not contain the complete OS.
+  * They use the resources from the base machine's OS.
+  * They only contain the minimal OS or a base image.
+  * Container is a package of Application and Application Libraries required to run the application and minimum system dependencies.
 
 ## Containerisation
 
 ## Docker
 
+  * Docker is a containerization platform that provides easy way to containerize the applications.
+
+## Docker Architecture
+
 ## Docker Lifecycle
 
+* **Docker Engine**:
+  * Single Point of Failure.
+  * Once the docker engine is down, then all the containers running the applications are down.
+  
 * **Docker File** is A text file describing how to build an image.
  
     * `FROM` → Indicates the base image.
@@ -144,8 +155,8 @@
 
 ## Docker init
 
-* This ONLY works with on Docker Desktop.
-* 
+  * This ONLY works with on Docker Desktop.
+  * 
 
 ## Commands
 
