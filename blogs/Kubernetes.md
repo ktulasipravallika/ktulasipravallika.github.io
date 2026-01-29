@@ -164,9 +164,9 @@
 
  * `kubectl create ns namespace_name`
  
- * `kubectl -n bootcamp create deployment deployment_name --image=image_name` → Creates a Deployment with name and image mentioned.
- * `kubectl -n bootcamp expose deployment deployment_name --port=port_number` → Creates a Service pointing to pods managed by Deployment mentioned.
- * `kubectl -n bootcamp port-forward svc/web 8080:80` → Craetes a temporary tunnel from the laptop to something in cluster {local port 8080 → remote port 80}
+ * `kubectl -n namespace_name create deployment deployment_name --image=image_name` → Creates a Deployment with name and image mentioned.
+ * `kubectl -n namespace_name expose deployment deployment_name --port=port_number` → Creates a Service pointing to pods managed by Deployment mentioned.
+ * `kubectl -n namespace_name port-forward svc/web 8080:80` → Creates a temporary tunnel from the laptop to something in cluster {local port 8080 → remote port 80}
 
  * `kubectl describe pod pod_name` → Describes the complete details of the pod including events.
    
@@ -227,4 +227,19 @@
       * Wrong command/args
       * App can’t reach dependency (DB)
       * Permission issues
+    
+  * **Pod stuck in Pending** :
+    * A pod is Pending when it has not started running on any node yet.
+    * That means Kubernetes couldn’t place it (schedule it) because something is missing, like:
+      * Not enough CPU/memory on any node
+      * Constraints don’t match any node (nodeSelector/affinity)
+      * Required storage (PVC) not available
+      * Taints/tolerations mismatch
+
+**Note:**
+* **Requests** → What the scheduler uses to place the pod.
+* **Limits** → The maximum the container is allowed to use. (enforced by runtime)
+  * If request is too high → Pod stays Pending
+  * If limit is too low → app can get OOMKilled / throttled
+* Requests affect scheduling and guaranteed resources; limits enforce the max usage at runtime.
 
