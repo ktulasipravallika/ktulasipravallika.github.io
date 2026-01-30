@@ -1,35 +1,6 @@
+# Linux & OS Fundamentals
 
-# 1) Interview Strategy & Resume Defense
-
-## 1.1 Role expectations
-- [ ] DevOps vs SRE vs Platform vs Cloud Engineer: differences in focus
-- [ ] Common interview loop components:
-  - [ ] Linux + Networking troubleshooting
-  - [ ] AWS deep dive (IAM/VPC/LB/Lambda/S3/DynamoDB)
-  - [ ] Terraform/IaC deep dive
-  - [ ] CI/CD design + failure cases
-  - [ ] Observability + incident response
-  - [ ] Behavioral + ownership + impact
-  - [ ] Light coding / scripting
-
-## 1.2 Resume bullet “defense”
-For each bullet you wrote, be able to answer:
-- [ ] **What was the problem?** (before)
-- [ ] **What did you change?** (exact steps/tools)
-- [ ] **How did you measure impact?** (metrics, baseline, timeframe)
-- [ ] **What were tradeoffs?** (cost, risk, complexity)
-- [ ] **How did you roll out safely?** (testing, staged deploy, rollback)
-
-## 1.3 Communication patterns that pass interviews
-- [ ] Troubleshooting structure: **symptom → scope → hypothesis → checks → fix → prevent**
-- [ ] System design structure: **requirements → constraints → architecture → failure modes → security → cost**
-- [ ] “Think aloud” without rambling (use headings in speech)
-
----
-
-# 2) Linux & OS Fundamentals
-
-## 2.1 Shell & CLI essentials
+## Shell & CLI essentials
 - [ ] Shell basics: `bash`/`zsh`, quoting, escaping, globbing
 - [ ] Environment variables: `export`, PATH, subshells
 - [ ] Redirection: `>`, `>>`, `<`, `2>`, `2>&1`, pipes `|`
@@ -663,16 +634,16 @@ You must be able to debug these quickly:
 
 ---
 
-# 11) Python + Boto3 Automation
+# Python + Boto3 Automation
 
-## 10.1 Python fundamentals
+## Python fundamentals
 - [ ] Data structures + when to use each
 - [ ] Exceptions and error handling
 - [ ] File IO, JSON/YAML parsing concept
 - [ ] Logging best practices
 - [ ] Basic OOP concepts (only as needed)
 
-## 10.2 Production-quality automation patterns
+## Production-quality automation patterns
 - [ ] Idempotency (repeat safe)
 - [ ] Retries with backoff + jitter (concept)
 - [ ] Timeout handling
@@ -685,7 +656,7 @@ You must be able to debug these quickly:
   - [ ] config files
 - [ ] Unit tests with mocks concept (pytest)
 
-## 10.3 Boto3 deep basics
+## Boto3 deep basics
 - [ ] client vs resource
 - [ ] paginators
 - [ ] waiters
