@@ -245,6 +245,16 @@ Program is a file on disk.
   
 * `echo $SHELL` → Prints the default shell set for the current user.
 
+* `cmd > out.txt` → Add the data and overrides previosuly existing data.
+  
+* `cmd >> out.txt` → Appends the data.
+  
+* `cmd 2> err.txt` → Adds the error messages STDERR to err.txt.
+  
+* `cmd > all.txt 2>&1` → Adds the error messages STDERR and output text to all.txt
+  
+* `cmd 2>&1 > all.txt` → Adds the error messages STDERR to terminal and output text to all.txt.
+
 #### Help Commands
 
 * `type <cmd>` → Tells what the command is (alias, builtin, function, or external binary).
@@ -554,7 +564,9 @@ Program is a file on disk.
 * `sort` → Sorts and prints the values of the file.
     * `-n` → Numerically sorts the values.
     * `-r` → Sorts the values in reverse order.
-      
+
+* `wc` → Shows the word count in the file.
+  
 #### File Permissions
 
 * `chmod` → To change the permissions to owner, group, others.  
