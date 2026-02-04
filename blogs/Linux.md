@@ -510,7 +510,8 @@ Program is a file on disk.
   * `-n` → `grep -n "error" file_name` → Show Line Numbers
   * `-c` → `grep -c "error" file_name` → Count of matching pattern
   * `-r` → `grep -r "error" folder_path` → recursive search in folder
-  * `-R` → `grep -R "error" folder_path` → follows symlink 
+  * `-R` → `grep -R "error" folder_path` → follows symlink
+  * `--line-buffered` → makes grep print immediately.
     
 * `find` → Searches the filesystem in real time.
   * `-name` → `find /var/log -name "*.log"`
@@ -544,8 +545,16 @@ Program is a file on disk.
   * `ln target_file symlink_name`
  
 * `awk`
+  
 * `sed`
-    
+
+* `uniq` → Prints only the unique values in the file.
+    * `-c` → Prints the count of the unique words. 
+
+* `sort` → Sorts and prints the values of the file.
+    * `-n` → Numerically sorts the values.
+    * `-r` → Sorts the values in reverse order.
+      
 #### File Permissions
 
 * `chmod` → To change the permissions to owner, group, others.  
