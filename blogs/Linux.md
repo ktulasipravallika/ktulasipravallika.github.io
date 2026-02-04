@@ -240,7 +240,22 @@ Program is a file on disk.
 ## Commands
 
 * `#!/bin/bash` → Shebang
-* `./file_name` →
+  
+* `./file_name` → Executes the shell files.
+  
+* `echo $SHELL` → Prints the default shell set for the current user.
+
+#### Help Commands
+
+* `type <cmd>` → Tells what the command is (alias, builtin, function, or external binary).
+  
+* `<cmd> --help` → Prints help text for the command given.
+  
+* `man <cmd>` → Opens the full manual page for the command given.
+  
+* `which <cmd>` → Shows the binary path that would run when the command given is executed.
+  
+* `apropos "<command/text>" → Search manuals by keywords. Gives the list of commands that matches the keyword given.
 
 #### Users and Groups
 
@@ -262,7 +277,9 @@ Program is a file on disk.
   
 * `sudo -l` → Fast way to confirm “do I have the rights to restart services, read logs, change firewall rules, etc.?” during troubleshooting.
 
-* `whoami` → Prints the effective username of the current process.
+* `whoami` → Prints the current username.
+  
+* `uname -a` → Prints the OS/Kernel and system information. 
 
 #### Process Commands
 
@@ -306,6 +323,9 @@ Program is a file on disk.
   * `pkill process_id`
     
   * `echo $?` → Stores the last exit code.
+      * `0` → `true`
+      * `1` → `false`
+      * `non-zero` (often 2 for “misuse” / not found depending on command) → `failing commands`
     
   * `trap`
       * trap tells bash, when you receive a signal, run this code instead of just dying.
@@ -601,7 +621,14 @@ Program is a file on disk.
 * `netstat -tuln` → legacy version of `ss`
 
 * `lsof -i :80` → To check which process is using port 80.
-  
+
+#### Short Cuts
+
+* `↑` → Recalls the previous commands executed.
+* `ctrl+r` → Search for the commands used in history (recent).
+* `ctrl+a` → Cursor goes to start of the line.
+* `ctrl+e` → Cursor goes to end of the line.
+
 #### Default Ports 
 
 * HTTP → 80
