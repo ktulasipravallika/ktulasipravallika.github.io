@@ -39,38 +39,32 @@
   
 ## Activities performed by Devops Engineer
 
-CI/CD
+**CI/CD**
     * Set up pipelines (Jenkins, GitHub Actions, GitLab CI)
     * Automate: **build → test → scan → deploy**
-    * Manage versioning and release workflows
-    
-Infrastructure & Cloud 
+    * Manage versioning and release workflows    
+**Infrastructure & Cloud**
     * Provision servers/services using **IaC**
     * Manage cloud services: compute, storage, network, load balancers, databases
-    * Cost optimization and resource cleanup
-  
-Containers & Orchestration
+    * Cost optimization and resource cleanup  
+**Containers & Orchestration**
     * Create and manage **Docker** images
     * Deploy apps using **Kubernetes/ECS**
-    * Handle scaling, service discovery, deployments, rollbacks
-    
-Monitoring & Observability
+    * Handle scaling, service discovery, deployments, rollbacks    
+**Monitoring & Observability**
     * Set up dashboards and alerts (Prometheus, Grafana, CloudWatch)
     * Central logging (ELK, Loki, Splunk)
     * Tracing and performance monitoring (Jaeger, Datadog, New Relic)
-    * On-call support, incident response, postmortems
-    
-Security & Compliance (DevSecOps)
+    * On-call support, incident response, postmortems    
+**Security & Compliance**
     * Add security scans in pipelines (SAST/DAST, container scans)
     * Manage secrets (Vault, AWS Secrets Manager)
-    * Enforce least privilege access (IAM, RBAC)
-  
-Configuration & Reliability
+    * Enforce least privilege access (IAM, RBAC) 
+**Configuration & Reliability**
     * Standardize environments (dev/test/prod)
     * Use configuration management (Ansible, Chef, Puppet)
-    * Improve uptime, backups, disaster recovery
-    
-Collaboration & Process Improvements
+    * Improve uptime, backups, disaster recovery   
+**Collaboration & Process Improvements**
     * Work with developers to improve deployments and debugging
     * Document runbooks and operational procedures
     * Improve release speed and reduce failures
