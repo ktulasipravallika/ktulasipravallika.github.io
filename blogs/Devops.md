@@ -84,3 +84,91 @@
 - Work with developers to improve deployments and debugging.
 - Document runbooks and operational procedures.
 - Improve release speed and reduce failures.
+
+---
+
+## SDLC (Software Development Life Cycle)
+
+SDLC is a step-by-step process used to **plan, build, test, and deliver** software in a structured way.
+
+### 1) Planning
+- Understand the business problem
+- Gather requirements from stakeholders
+- Decide timeline, budget, and resources
+
+### 2) Defining (Requirements)
+- Document requirements clearly (what to build + expected behavior)
+- Define scope, priorities, and acceptance criteria
+
+### 3) Designing
+- Create the software design before coding
+- **HLD (High-Level Design):** overall architecture, components, data flow
+- **LLD (Low-Level Design):** detailed module logic, APIs, classes, DB schema, edge cases
+
+### 4) Building (Development)
+- Write the code based on the design
+- Do code reviews and follow coding standards
+- Use version control (Git)
+
+### 5) Testing
+- Verify the software works as expected
+- Run different tests:
+  - Unit tests
+  - Integration tests
+  - System / End-to-end tests
+  - Regression tests
+
+### 6) Deployment
+- Release the tested code to an environment (staging/production)
+- Make the application available to end users
+- Monitor and fix issues if needed
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
