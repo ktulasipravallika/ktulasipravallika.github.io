@@ -12,10 +12,10 @@
 ## Why Devops?
 
   **Before Devops**
-      * **Developer** writes code and pushes to repo.
-      * **System Administrator** manually creates servers.
-      * **Build/Release Engineer** builds and deploys the application.
-      * **Ops/Server Admin** configures the application server and fixes production issues.
+    * **Developer** writes code and pushes to repo.
+    * **System Administrator** manually creates servers.
+    * **Build/Release Engineer** builds and deploys the application.
+    * **Ops/Server Admin** configures the application server and fixes production issues.
   **Cons**
     * Slow releases
     * Lots of manual steps
